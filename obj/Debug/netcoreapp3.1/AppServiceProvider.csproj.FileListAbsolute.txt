@@ -1,0 +1,6 @@
+D:\Dropbox\GMP\AppServiceProvider\obj\Debug\netcoreapp3.1\AppServiceProvider.csprojAssemblyReference.cache
+D:\Dropbox\GMP\AppServiceProvider\obj\Debug\netcoreapp3.1\AppServiceProvider.MvcApplicationPartsAssemblyInfo.cache
+D:\Dropbox\GMP\AppServiceProvider\obj\Debug\netcoreapp3.1\AppServiceProvider.RazorAssemblyInfo.cache
+D:\Dropbox\GMP\AppServiceProvider\obj\Debug\netcoreapp3.1\AppServiceProvider.RazorAssemblyInfo.cs
+D:\Dropbox\GMP\AppServiceProvider\obj\Debug\netcoreapp3.1\AppServiceProvider.AssemblyInfoInputs.cache
+D:\Dropbox\GMP\AppServiceProvider\obj\Debug\netcoreapp3.1\AppServiceProvider.AssemblyInfo.cs

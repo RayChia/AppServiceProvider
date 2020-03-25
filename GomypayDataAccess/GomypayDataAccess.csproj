@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{691B0925-149F-4C52-899B-F60293C66ECC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GomypayDataAccess</RootNamespace>
+    <AssemblyName>GomypayDataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APP_Activity.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Category_Big.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Category_Small.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Customer.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Grade.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Mission.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Mission_Item.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Misson_Mode.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_News.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Notice.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Order.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Product.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Product_Big.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Product_Small.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Promotion.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_SlideShow.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_SurpriseBox.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_SurPrise_Item.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_TCash.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_User.cs">
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gomypay_AppDatamodel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gomypay_AppDatamodel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gomypay_AppDatamodel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gomypay_AppDatamodel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gomypay_AppDatamodel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Gomypay_AppDatamodel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Gomypay_AppDatamodel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Gomypay_AppDatamodel.edmx.diagram">
+      <DependentUpon>Gomypay_AppDatamodel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Gomypay_AppDatamodel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Gomypay_AppDatamodel.Context.cs</LastGenOutput>
+      <DependentUpon>Gomypay_AppDatamodel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Gomypay_AppDatamodel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Gomypay_AppDatamodel.edmx</DependentUpon>
+      <LastGenOutput>Gomypay_AppDatamodel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

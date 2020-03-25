@@ -1,0 +1,1020 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Gomypay_AppDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="APP_Activity">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Activity_ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Activity_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="APP_Customer_ID" Type="nvarchar" MaxLength="32" />
+          <Property Name="Activity_Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Activity_content" Type="nvarchar(max)" />
+          <Property Name="Activity_Pic" Type="nvarchar(max)" />
+          <Property Name="Date1" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="Date2" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="Builder" Type="nvarchar" MaxLength="32" />
+          <Property Name="Build_Date" Type="datetime" />
+          <Property Name="Modifier" Type="nvarchar" MaxLength="32" />
+          <Property Name="Modify_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="APP_Category_Big">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="BCategory_ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BCategory_ID" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="BCategory_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="APP_Category_Small">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SCategory_ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SCategory_ID" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="SCategory_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="APP_Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="APP_Customer_ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="APP_Customer_ID" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Grade_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Customer_ID" Type="nvarchar" MaxLength="32" />
+          <Property Name="Dealer_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="Customer_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Store_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pic" Type="nvarchar(max)" />
+          <Property Name="Identifier" Type="nvarchar" MaxLength="11" />
+          <Property Name="Personal_ID" Type="nvarchar" MaxLength="10" />
+          <Property Name="Mail_Address" Type="nvarchar(max)" />
+          <Property Name="Telm" Type="nvarchar" MaxLength="20" />
+          <Property Name="BCategory_ID" Type="nvarchar" MaxLength="5" />
+          <Property Name="SCategory_ID" Type="nvarchar" MaxLength="5" />
+          <Property Name="Address_zip" Type="nvarchar" MaxLength="5" />
+          <Property Name="Address_City" Type="nvarchar" MaxLength="10" />
+          <Property Name="Address_Zone" Type="nvarchar" MaxLength="10" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Customer_Password" Type="nvarchar" MaxLength="32" />
+          <Property Name="Customer_Checkstr" Type="nvarchar" MaxLength="32" />
+          <Property Name="Use_Bonus" Type="nvarchar" MaxLength="1" />
+          <Property Name="Use_Bonus_Percent" Type="float" />
+          <Property Name="APP_Creditpay_Bank" Type="nvarchar" MaxLength="10" />
+          <Property Name="APP_Creditpay_Fee" Type="nvarchar" MaxLength="10" />
+          <Property Name="APP_Creditpay_Singelpay_Max" Type="nvarchar" MaxLength="20" />
+          <Property Name="APP_Creditpay_Daypay_Max" Type="nvarchar" MaxLength="20" />
+          <Property Name="APP_Creditpay_Monthpay_Max" Type="nvarchar" MaxLength="20" />
+          <Property Name="Request_Payment_Bank" Type="nvarchar" MaxLength="10" />
+          <Property Name="Request_Payment_Branch" Type="nvarchar" MaxLength="10" />
+          <Property Name="Request_Payment_Account_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Request_Payment_Account" Type="nvarchar" MaxLength="20" />
+          <Property Name="Statu" Type="nvarchar" MaxLength="1" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="500" />
+          <Property Name="Line" Type="nvarchar" MaxLength="500" />
+          <Property Name="Istransaction" Type="nvarchar" MaxLength="1" />
+          <Property Name="Build_Date" Type="datetime" />
+          <Property Name="Builder" Type="nvarchar" MaxLength="32" />
+          <Property Name="Modify_Date" Type="datetime" />
+          <Property Name="Modifier" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="APP_Grade">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Grade_No" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Grade_No" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Grade_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="APP_Mission">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Misson_No" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Misson_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Misson_Mode_No" Type="nvarchar" MaxLength="5" />
+          <Property Name="Misson_Start_Date" Type="datetime" />
+          <Property Name="Misson_End_Date" Type="datetime" />
+          <Property Name="Build_Date" Type="datetime" />
+          <Property Name="Builder" Type="nvarchar" MaxLength="32" />
+          <Property Name="Modify_Date" Type="datetime" />
+          <Property Name="Modifier" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="APP_Mission_Item">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Misson_Item_No" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Misson_Item_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Misson_No" Type="nvarchar" MaxLength="20" />
+          <Property Name="Misson_Mode_No" Type="nvarchar" MaxLength="5" />
+          <Property Name="System_ID" Type="nvarchar" MaxLength="32" />
+          <Property Name="Creat_Day" Type="datetime" />
+        </EntityType>
+        <EntityType Name="APP_Misson_Mode">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Misson_Mode_No" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Misson_Mode_No" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Misson_Mode_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="APP_News">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="News_No" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="News_No" Type="int" Nullable="false" />
+          <Property Name="News_Type" Type="nvarchar" MaxLength="1" />
+          <Property Name="News_Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="News_Content" Type="nvarchar(max)" />
+          <Property Name="Statu" Type="nvarchar" MaxLength="1" />
+          <Property Name="Creat_Day" Type="datetime" />
+          <Property Name="Builder" Type="nvarchar" MaxLength="20" />
+          <Property Name="Modifier" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="APP_Notice">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Notice_No" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Notice_No" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Notice_Type" Type="nvarchar" MaxLength="1" />
+          <Property Name="Notice_Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notice_content" Type="nvarchar(max)" />
+          <Property Name="Notice_Day" Type="datetime" />
+          <Property Name="Creat_Day" Type="datetime" />
+          <Property Name="IsNotice" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="APP_Order">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="APOrder_ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="APOrder_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Order_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="User_System_ID" Type="nvarchar" MaxLength="32" />
+          <Property Name="Customer_ID" Type="nvarchar" MaxLength="32" />
+          <Property Name="Customer_Order_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="Promotion_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="Use_Bonus" Type="bigint" />
+          <Property Name="Return_Bonus" Type="bigint" />
+          <Property Name="IsInstallment" Type="nvarchar" MaxLength="1" />
+          <Property Name="Installment_Period" Type="int" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="Pay_Amount" Type="int" />
+          <Property Name="Pay_Result" Type="nvarchar" MaxLength="1" />
+          <Property Name="Approve_Code" Type="nvarchar" MaxLength="6" />
+          <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="10" />
+          <Property Name="Goods_Return_Statu" Type="nvarchar" MaxLength="1" />
+          <Property Name="Build_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="APP_Product">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="APP_Customer_ID" Type="nvarchar" MaxLength="32" />
+          <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Product_Picture" Type="nvarchar(max)" />
+          <Property Name="Product_Info" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="APP_Product_Big">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="BProduct_ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BProduct_ID" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="BProduct_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="APP_Product_Small">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SProduct_ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SProduct_ID" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="SProduct_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="APP_Promotion">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Promotion_ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Promotion_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Activity_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="System_ID" Type="nvarchar" MaxLength="32" />
+          <Property Name="UseDate" Type="datetime" />
+          <Property Name="IsUsed" Type="nvarchar" MaxLength="1" />
+          <Property Name="Creat_Day" Type="datetime" />
+        </EntityType>
+        <EntityType Name="APP_SlideShow">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Pic" Type="nvarchar(max)" />
+          <Property Name="Statu" Type="nvarchar" MaxLength="1" />
+          <Property Name="Creat_Day" Type="datetime" />
+          <Property Name="Builder" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="APP_SurPrise_Item">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SurItem_No" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SurItem_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SurBox_No" Type="nvarchar" MaxLength="20" />
+          <Property Name="System_ID" Type="nvarchar" MaxLength="32" />
+          <Property Name="Serial_Number" Type="nvarchar" MaxLength="20" />
+          <Property Name="Memo" Type="nvarchar(max)" />
+          <Property Name="Creat_Day" Type="datetime" />
+        </EntityType>
+        <EntityType Name="APP_SurpriseBox">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SurBox_No" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SurBox_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SurBox_Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="SurBox_Num" Type="nvarchar" MaxLength="20" />
+          <Property Name="SurBox_Pic" Type="nvarchar(max)" />
+          <Property Name="SurBox_Start_Date" Type="datetime" />
+          <Property Name="SurBox_End_Date" Type="datetime" />
+          <Property Name="IsRandom" Type="nvarchar" MaxLength="1" />
+          <Property Name="Build_Date" Type="datetime" />
+          <Property Name="Builder" Type="nvarchar" MaxLength="32" />
+          <Property Name="Modify_Date" Type="datetime" />
+          <Property Name="Modifier" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="APP_TCash">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Cash_No" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cash_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="APP_Customer_ID" Type="nvarchar" MaxLength="32" />
+          <Property Name="Request_Payment_Bank" Type="nvarchar" MaxLength="10" />
+          <Property Name="Request_Payment_Branch" Type="nvarchar" MaxLength="10" />
+          <Property Name="Request_Payment_Account_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Request_Payment_Account" Type="nvarchar" MaxLength="20" />
+          <Property Name="Transfer_Cash" Type="nvarchar" MaxLength="20" />
+          <Property Name="Use_Bonus" Type="bigint" />
+          <Property Name="ISCheck" Type="nvarchar" MaxLength="1" />
+          <Property Name="Check_Date" Type="datetime" />
+          <Property Name="Checker" Type="nvarchar" MaxLength="20" />
+          <Property Name="Build_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="APP_User">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="System_ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="System_ID" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="User_Account" Type="nvarchar" MaxLength="10" />
+          <Property Name="User_Password" Type="nvarchar" MaxLength="32" />
+          <Property Name="User_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Identifier" Type="nvarchar" MaxLength="10" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="RN_verified" Type="nvarchar" MaxLength="1" />
+          <Property Name="IsDuplicate" Type="nvarchar" MaxLength="1" />
+          <Property Name="Address_City" Type="nvarchar" MaxLength="5" />
+          <Property Name="Address_Zone" Type="nvarchar" MaxLength="5" />
+          <Property Name="Address_ZIP" Type="nvarchar" MaxLength="5" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="Bonus_Point" Type="bigint" />
+          <Property Name="Invoice_Carrier" Type="nvarchar" MaxLength="20" />
+          <Property Name="Referrer_Type" Type="nchar" MaxLength="1" />
+          <Property Name="Referrer_ID" Type="nvarchar" MaxLength="32" />
+          <Property Name="Build_Date" Type="datetime" />
+          <Property Name="Builder" Type="nvarchar" MaxLength="32" />
+          <Property Name="Modify_Date" Type="datetime" />
+          <Property Name="Modifier" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityContainer Name="Gomypay_AppDBModelStoreContainer">
+          <EntitySet Name="APP_Activity" EntityType="Self.APP_Activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_Category_Big" EntityType="Self.APP_Category_Big" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_Category_Small" EntityType="Self.APP_Category_Small" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_Customer" EntityType="Self.APP_Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_Grade" EntityType="Self.APP_Grade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_Mission" EntityType="Self.APP_Mission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_Mission_Item" EntityType="Self.APP_Mission_Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_Misson_Mode" EntityType="Self.APP_Misson_Mode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_News" EntityType="Self.APP_News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_Notice" EntityType="Self.APP_Notice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_Order" EntityType="Self.APP_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_Product" EntityType="Self.APP_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_Product_Big" EntityType="Self.APP_Product_Big" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_Product_Small" EntityType="Self.APP_Product_Small" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_Promotion" EntityType="Self.APP_Promotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_SlideShow" EntityType="Self.APP_SlideShow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_SurPrise_Item" EntityType="Self.APP_SurPrise_Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_SurpriseBox" EntityType="Self.APP_SurpriseBox" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_TCash" EntityType="Self.APP_TCash" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APP_User" EntityType="Self.APP_User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Gomypay_AppDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="APP_Activity">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Activity_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Activity_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="APP_Customer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Activity_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Activity_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Activity_Pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date1" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date2" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Build_Date" Type="DateTime" Precision="3" />
+          <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Modify_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="APP_Category_Big">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="BCategory_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BCategory_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BCategory_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APP_Category_Small">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SCategory_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SCategory_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SCategory_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APP_Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="APP_Customer_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APP_Customer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Grade_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Dealer_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Store_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Identifier" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Personal_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Mail_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telm" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BCategory_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="SCategory_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Address_zip" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Address_City" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Address_Zone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Checkstr" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Use_Bonus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Use_Bonus_Percent" Type="Double" />
+          <Property Name="APP_Creditpay_Bank" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="APP_Creditpay_Fee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="APP_Creditpay_Singelpay_Max" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="APP_Creditpay_Daypay_Max" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="APP_Creditpay_Monthpay_Max" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Payment_Bank" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Payment_Branch" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Payment_Account_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Payment_Account" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Statu" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Facebook" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Line" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Istransaction" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Build_Date" Type="DateTime" Precision="3" />
+          <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Modify_Date" Type="DateTime" Precision="3" />
+          <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APP_Grade">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Grade_No" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Grade_No" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Grade_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APP_Mission">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Misson_No" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Misson_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Misson_Mode_No" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Misson_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Misson_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Build_Date" Type="DateTime" Precision="3" />
+          <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Modify_Date" Type="DateTime" Precision="3" />
+          <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APP_Mission_Item">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Misson_Item_No" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Misson_Item_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Misson_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Misson_Mode_No" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="System_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Creat_Day" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="APP_Misson_Mode">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Misson_Mode_No" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Misson_Mode_No" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Misson_Mode_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APP_News">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="News_No" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="News_No" Type="Int32" Nullable="false" />
+          <Property Name="News_Type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="News_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="News_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Statu" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Creat_Day" Type="DateTime" Precision="3" />
+          <Property Name="Builder" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Modifier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APP_Notice">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Notice_No" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Notice_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Notice_Type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Notice_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notice_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notice_Day" Type="DateTime" Precision="3" />
+          <Property Name="Creat_Day" Type="DateTime" Precision="3" />
+          <Property Name="IsNotice" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APP_Order">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="APOrder_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APOrder_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Order_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="User_System_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Order_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Promotion_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Use_Bonus" Type="Int64" />
+          <Property Name="Return_Bonus" Type="Int64" />
+          <Property Name="IsInstallment" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Installment_Period" Type="Int32" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="Pay_Amount" Type="Int32" />
+          <Property Name="Pay_Result" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Approve_Code" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Goods_Return_Statu" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Build_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="APP_Product">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="APP_Customer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Product_Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Product_Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APP_Product_Big">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="BProduct_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BProduct_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BProduct_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APP_Product_Small">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SProduct_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SProduct_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SProduct_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APP_Promotion">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Promotion_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Promotion_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Activity_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="System_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="UseDate" Type="DateTime" Precision="3" />
+          <Property Name="IsUsed" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Creat_Day" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="APP_SlideShow">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Statu" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Creat_Day" Type="DateTime" Precision="3" />
+          <Property Name="Builder" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APP_SurPrise_Item">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SurItem_No" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SurItem_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SurBox_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="System_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Serial_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Creat_Day" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="APP_SurpriseBox">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SurBox_No" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SurBox_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SurBox_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SurBox_Num" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SurBox_Pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SurBox_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="SurBox_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="IsRandom" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Build_Date" Type="DateTime" Precision="3" />
+          <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Modify_Date" Type="DateTime" Precision="3" />
+          <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="APP_TCash">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Cash_No" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cash_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="APP_Customer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Payment_Bank" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Payment_Branch" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Payment_Account_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Request_Payment_Account" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Transfer_Cash" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Use_Bonus" Type="Int64" />
+          <Property Name="ISCheck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Check_Date" Type="DateTime" Precision="3" />
+          <Property Name="Checker" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Build_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="APP_User">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="System_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="System_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="User_Account" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="User_Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Identifier" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="RN_verified" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="IsDuplicate" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Address_City" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Address_Zone" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Address_ZIP" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Bonus_Point" Type="Int64" />
+          <Property Name="Invoice_Carrier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Referrer_Type" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Referrer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Build_Date" Type="DateTime" Precision="3" />
+          <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Modify_Date" Type="DateTime" Precision="3" />
+          <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Gomypay_AppEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="APP_Activity" EntityType="Self.APP_Activity" />
+          <EntitySet Name="APP_Category_Big" EntityType="Self.APP_Category_Big" />
+          <EntitySet Name="APP_Category_Small" EntityType="Self.APP_Category_Small" />
+          <EntitySet Name="APP_Customer" EntityType="Self.APP_Customer" />
+          <EntitySet Name="APP_Grade" EntityType="Self.APP_Grade" />
+          <EntitySet Name="APP_Mission" EntityType="Self.APP_Mission" />
+          <EntitySet Name="APP_Mission_Item" EntityType="Self.APP_Mission_Item" />
+          <EntitySet Name="APP_Misson_Mode" EntityType="Self.APP_Misson_Mode" />
+          <EntitySet Name="APP_News" EntityType="Self.APP_News" />
+          <EntitySet Name="APP_Notice" EntityType="Self.APP_Notice" />
+          <EntitySet Name="APP_Order" EntityType="Self.APP_Order" />
+          <EntitySet Name="APP_Product" EntityType="Self.APP_Product" />
+          <EntitySet Name="APP_Product_Big" EntityType="Self.APP_Product_Big" />
+          <EntitySet Name="APP_Product_Small" EntityType="Self.APP_Product_Small" />
+          <EntitySet Name="APP_Promotion" EntityType="Self.APP_Promotion" />
+          <EntitySet Name="APP_SlideShow" EntityType="Self.APP_SlideShow" />
+          <EntitySet Name="APP_SurPrise_Item" EntityType="Self.APP_SurPrise_Item" />
+          <EntitySet Name="APP_SurpriseBox" EntityType="Self.APP_SurpriseBox" />
+          <EntitySet Name="APP_TCash" EntityType="Self.APP_TCash" />
+          <EntitySet Name="APP_User" EntityType="Self.APP_User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Gomypay_AppDBModelStoreContainer" CdmEntityContainer="Gomypay_AppEntities">
+          <EntitySetMapping Name="APP_Activity">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Activity">
+              <MappingFragment StoreEntitySet="APP_Activity">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Activity_ID" ColumnName="Activity_ID" />
+                <ScalarProperty Name="APP_Customer_ID" ColumnName="APP_Customer_ID" />
+                <ScalarProperty Name="Activity_Title" ColumnName="Activity_Title" />
+                <ScalarProperty Name="Activity_content" ColumnName="Activity_content" />
+                <ScalarProperty Name="Activity_Pic" ColumnName="Activity_Pic" />
+                <ScalarProperty Name="Date1" ColumnName="Date1" />
+                <ScalarProperty Name="Date2" ColumnName="Date2" />
+                <ScalarProperty Name="Builder" ColumnName="Builder" />
+                <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+                <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_Category_Big">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Category_Big">
+              <MappingFragment StoreEntitySet="APP_Category_Big">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BCategory_ID" ColumnName="BCategory_ID" />
+                <ScalarProperty Name="BCategory_Name" ColumnName="BCategory_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_Category_Small">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Category_Small">
+              <MappingFragment StoreEntitySet="APP_Category_Small">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SCategory_ID" ColumnName="SCategory_ID" />
+                <ScalarProperty Name="SCategory_Name" ColumnName="SCategory_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_Customer">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Customer">
+              <MappingFragment StoreEntitySet="APP_Customer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="APP_Customer_ID" ColumnName="APP_Customer_ID" />
+                <ScalarProperty Name="Grade_No" ColumnName="Grade_No" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Dealer_ID" ColumnName="Dealer_ID" />
+                <ScalarProperty Name="Customer_name" ColumnName="Customer_name" />
+                <ScalarProperty Name="Store_name" ColumnName="Store_name" />
+                <ScalarProperty Name="Pic" ColumnName="Pic" />
+                <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+                <ScalarProperty Name="Personal_ID" ColumnName="Personal_ID" />
+                <ScalarProperty Name="Mail_Address" ColumnName="Mail_Address" />
+                <ScalarProperty Name="Telm" ColumnName="Telm" />
+                <ScalarProperty Name="BCategory_ID" ColumnName="BCategory_ID" />
+                <ScalarProperty Name="SCategory_ID" ColumnName="SCategory_ID" />
+                <ScalarProperty Name="Address_zip" ColumnName="Address_zip" />
+                <ScalarProperty Name="Address_City" ColumnName="Address_City" />
+                <ScalarProperty Name="Address_Zone" ColumnName="Address_Zone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Customer_Password" ColumnName="Customer_Password" />
+                <ScalarProperty Name="Customer_Checkstr" ColumnName="Customer_Checkstr" />
+                <ScalarProperty Name="Use_Bonus" ColumnName="Use_Bonus" />
+                <ScalarProperty Name="Use_Bonus_Percent" ColumnName="Use_Bonus_Percent" />
+                <ScalarProperty Name="APP_Creditpay_Bank" ColumnName="APP_Creditpay_Bank" />
+                <ScalarProperty Name="APP_Creditpay_Fee" ColumnName="APP_Creditpay_Fee" />
+                <ScalarProperty Name="APP_Creditpay_Singelpay_Max" ColumnName="APP_Creditpay_Singelpay_Max" />
+                <ScalarProperty Name="APP_Creditpay_Daypay_Max" ColumnName="APP_Creditpay_Daypay_Max" />
+                <ScalarProperty Name="APP_Creditpay_Monthpay_Max" ColumnName="APP_Creditpay_Monthpay_Max" />
+                <ScalarProperty Name="Request_Payment_Bank" ColumnName="Request_Payment_Bank" />
+                <ScalarProperty Name="Request_Payment_Branch" ColumnName="Request_Payment_Branch" />
+                <ScalarProperty Name="Request_Payment_Account_Name" ColumnName="Request_Payment_Account_Name" />
+                <ScalarProperty Name="Request_Payment_Account" ColumnName="Request_Payment_Account" />
+                <ScalarProperty Name="Statu" ColumnName="Statu" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Line" ColumnName="Line" />
+                <ScalarProperty Name="Istransaction" ColumnName="Istransaction" />
+                <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+                <ScalarProperty Name="Builder" ColumnName="Builder" />
+                <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_Grade">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Grade">
+              <MappingFragment StoreEntitySet="APP_Grade">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Grade_No" ColumnName="Grade_No" />
+                <ScalarProperty Name="Grade_Name" ColumnName="Grade_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_Mission">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Mission">
+              <MappingFragment StoreEntitySet="APP_Mission">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Misson_No" ColumnName="Misson_No" />
+                <ScalarProperty Name="Misson_Mode_No" ColumnName="Misson_Mode_No" />
+                <ScalarProperty Name="Misson_Start_Date" ColumnName="Misson_Start_Date" />
+                <ScalarProperty Name="Misson_End_Date" ColumnName="Misson_End_Date" />
+                <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+                <ScalarProperty Name="Builder" ColumnName="Builder" />
+                <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_Mission_Item">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Mission_Item">
+              <MappingFragment StoreEntitySet="APP_Mission_Item">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Misson_Item_No" ColumnName="Misson_Item_No" />
+                <ScalarProperty Name="Misson_No" ColumnName="Misson_No" />
+                <ScalarProperty Name="Misson_Mode_No" ColumnName="Misson_Mode_No" />
+                <ScalarProperty Name="System_ID" ColumnName="System_ID" />
+                <ScalarProperty Name="Creat_Day" ColumnName="Creat_Day" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_Misson_Mode">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Misson_Mode">
+              <MappingFragment StoreEntitySet="APP_Misson_Mode">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Misson_Mode_No" ColumnName="Misson_Mode_No" />
+                <ScalarProperty Name="Misson_Mode_Name" ColumnName="Misson_Mode_Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_News">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_News">
+              <MappingFragment StoreEntitySet="APP_News">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="News_No" ColumnName="News_No" />
+                <ScalarProperty Name="News_Type" ColumnName="News_Type" />
+                <ScalarProperty Name="News_Title" ColumnName="News_Title" />
+                <ScalarProperty Name="News_Content" ColumnName="News_Content" />
+                <ScalarProperty Name="Statu" ColumnName="Statu" />
+                <ScalarProperty Name="Creat_Day" ColumnName="Creat_Day" />
+                <ScalarProperty Name="Builder" ColumnName="Builder" />
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_Notice">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Notice">
+              <MappingFragment StoreEntitySet="APP_Notice">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Notice_No" ColumnName="Notice_No" />
+                <ScalarProperty Name="Notice_Type" ColumnName="Notice_Type" />
+                <ScalarProperty Name="Notice_Title" ColumnName="Notice_Title" />
+                <ScalarProperty Name="Notice_content" ColumnName="Notice_content" />
+                <ScalarProperty Name="Notice_Day" ColumnName="Notice_Day" />
+                <ScalarProperty Name="Creat_Day" ColumnName="Creat_Day" />
+                <ScalarProperty Name="IsNotice" ColumnName="IsNotice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_Order">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Order">
+              <MappingFragment StoreEntitySet="APP_Order">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="APOrder_ID" ColumnName="APOrder_ID" />
+                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+                <ScalarProperty Name="User_System_ID" ColumnName="User_System_ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Customer_Order_ID" ColumnName="Customer_Order_ID" />
+                <ScalarProperty Name="Promotion_ID" ColumnName="Promotion_ID" />
+                <ScalarProperty Name="Use_Bonus" ColumnName="Use_Bonus" />
+                <ScalarProperty Name="Return_Bonus" ColumnName="Return_Bonus" />
+                <ScalarProperty Name="IsInstallment" ColumnName="IsInstallment" />
+                <ScalarProperty Name="Installment_Period" ColumnName="Installment_Period" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Pay_Amount" ColumnName="Pay_Amount" />
+                <ScalarProperty Name="Pay_Result" ColumnName="Pay_Result" />
+                <ScalarProperty Name="Approve_Code" ColumnName="Approve_Code" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="Goods_Return_Statu" ColumnName="Goods_Return_Statu" />
+                <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_Product">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Product">
+              <MappingFragment StoreEntitySet="APP_Product">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="APP_Customer_ID" ColumnName="APP_Customer_ID" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+                <ScalarProperty Name="Product_Picture" ColumnName="Product_Picture" />
+                <ScalarProperty Name="Product_Info" ColumnName="Product_Info" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_Product_Big">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Product_Big">
+              <MappingFragment StoreEntitySet="APP_Product_Big">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BProduct_ID" ColumnName="BProduct_ID" />
+                <ScalarProperty Name="BProduct_Name" ColumnName="BProduct_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_Product_Small">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Product_Small">
+              <MappingFragment StoreEntitySet="APP_Product_Small">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SProduct_ID" ColumnName="SProduct_ID" />
+                <ScalarProperty Name="SProduct_Name" ColumnName="SProduct_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_Promotion">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Promotion">
+              <MappingFragment StoreEntitySet="APP_Promotion">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Promotion_ID" ColumnName="Promotion_ID" />
+                <ScalarProperty Name="Activity_ID" ColumnName="Activity_ID" />
+                <ScalarProperty Name="System_ID" ColumnName="System_ID" />
+                <ScalarProperty Name="UseDate" ColumnName="UseDate" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Creat_Day" ColumnName="Creat_Day" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_SlideShow">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_SlideShow">
+              <MappingFragment StoreEntitySet="APP_SlideShow">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Pic" ColumnName="Pic" />
+                <ScalarProperty Name="Statu" ColumnName="Statu" />
+                <ScalarProperty Name="Creat_Day" ColumnName="Creat_Day" />
+                <ScalarProperty Name="Builder" ColumnName="Builder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_SurPrise_Item">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_SurPrise_Item">
+              <MappingFragment StoreEntitySet="APP_SurPrise_Item">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SurItem_No" ColumnName="SurItem_No" />
+                <ScalarProperty Name="SurBox_No" ColumnName="SurBox_No" />
+                <ScalarProperty Name="System_ID" ColumnName="System_ID" />
+                <ScalarProperty Name="Serial_Number" ColumnName="Serial_Number" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="Creat_Day" ColumnName="Creat_Day" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_SurpriseBox">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_SurpriseBox">
+              <MappingFragment StoreEntitySet="APP_SurpriseBox">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SurBox_No" ColumnName="SurBox_No" />
+                <ScalarProperty Name="SurBox_Title" ColumnName="SurBox_Title" />
+                <ScalarProperty Name="SurBox_Num" ColumnName="SurBox_Num" />
+                <ScalarProperty Name="SurBox_Pic" ColumnName="SurBox_Pic" />
+                <ScalarProperty Name="SurBox_Start_Date" ColumnName="SurBox_Start_Date" />
+                <ScalarProperty Name="SurBox_End_Date" ColumnName="SurBox_End_Date" />
+                <ScalarProperty Name="IsRandom" ColumnName="IsRandom" />
+                <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+                <ScalarProperty Name="Builder" ColumnName="Builder" />
+                <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_TCash">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_TCash">
+              <MappingFragment StoreEntitySet="APP_TCash">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Cash_No" ColumnName="Cash_No" />
+                <ScalarProperty Name="APP_Customer_ID" ColumnName="APP_Customer_ID" />
+                <ScalarProperty Name="Request_Payment_Bank" ColumnName="Request_Payment_Bank" />
+                <ScalarProperty Name="Request_Payment_Branch" ColumnName="Request_Payment_Branch" />
+                <ScalarProperty Name="Request_Payment_Account_Name" ColumnName="Request_Payment_Account_Name" />
+                <ScalarProperty Name="Request_Payment_Account" ColumnName="Request_Payment_Account" />
+                <ScalarProperty Name="Transfer_Cash" ColumnName="Transfer_Cash" />
+                <ScalarProperty Name="Use_Bonus" ColumnName="Use_Bonus" />
+                <ScalarProperty Name="ISCheck" ColumnName="ISCheck" />
+                <ScalarProperty Name="Check_Date" ColumnName="Check_Date" />
+                <ScalarProperty Name="Checker" ColumnName="Checker" />
+                <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APP_User">
+            <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_User">
+              <MappingFragment StoreEntitySet="APP_User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="System_ID" ColumnName="System_ID" />
+                <ScalarProperty Name="User_Account" ColumnName="User_Account" />
+                <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="RN_verified" ColumnName="RN_verified" />
+                <ScalarProperty Name="IsDuplicate" ColumnName="IsDuplicate" />
+                <ScalarProperty Name="Address_City" ColumnName="Address_City" />
+                <ScalarProperty Name="Address_Zone" ColumnName="Address_Zone" />
+                <ScalarProperty Name="Address_ZIP" ColumnName="Address_ZIP" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Bonus_Point" ColumnName="Bonus_Point" />
+                <ScalarProperty Name="Invoice_Carrier" ColumnName="Invoice_Carrier" />
+                <ScalarProperty Name="Referrer_Type" ColumnName="Referrer_Type" />
+                <ScalarProperty Name="Referrer_ID" ColumnName="Referrer_ID" />
+                <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+                <ScalarProperty Name="Builder" ColumnName="Builder" />
+                <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
