@@ -495,55 +495,101 @@
             <param name="body"></param>
             <returns></returns>
         </member>
-        <member name="T:AppServiceProvider.Models.ApiResult`1">
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.Register(AppServiceProvider.Models.AddUser)">
+            <summary>
+            使用者註冊
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.AddUserAuth(AppServiceProvider.Models.CheckOTP)">
+            <summary>
+            使用者簡訊驗證
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.ResendSMS(AppServiceProvider.Models.ResendSMS)">
+            <summary>
+            重送使用者簡訊驗證
+            </summary> 
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AppServiceProvider.Models.AddUser">
+            <summary>
+            新增使用者
+            </summary>
+        </member>
+        <member name="T:AppServiceProvider.Models.CheckOTP">
+            <summary>
+            CheckOTP
+            </summary>
+        </member>
+        <member name="T:AppServiceProvider.Models.ResendSMS">
+            <summary>
+            ResendSMS
+            </summary>
+        </member>
+        <member name="T:AppServiceProvider.Models.ApiResult">
             <summary>
             API呼叫時，傳回的統一物件
             </summary>
         </member>
-        <member name="P:AppServiceProvider.Models.ApiResult`1.Succ">
+        <member name="P:AppServiceProvider.Models.ApiResult.Succ">
             <summary>
             執行成功與否
             </summary>
         </member>
-        <member name="P:AppServiceProvider.Models.ApiResult`1.Code">
+        <member name="P:AppServiceProvider.Models.ApiResult.Code">
             <summary>
             結果代碼(0000=成功，其餘為錯誤代號)
             </summary>
         </member>
-        <member name="P:AppServiceProvider.Models.ApiResult`1.Message">
+        <member name="P:AppServiceProvider.Models.ApiResult.Message">
             <summary>
             錯誤訊息
             </summary>
         </member>
-        <member name="P:AppServiceProvider.Models.ApiResult`1.DataTime">
+        <member name="P:AppServiceProvider.Models.ApiResult.DataTime">
             <summary>
             資料時間
             </summary>
         </member>
-        <member name="P:AppServiceProvider.Models.ApiResult`1.Data">
-            <summary>
-            資料本體
-            </summary>
-        </member>
-        <member name="M:AppServiceProvider.Models.ApiResult`1.#ctor(`0)">
+        <member name="M:AppServiceProvider.Models.ApiResult.#ctor">
             <summary>
             建立成功結果
             </summary>
             <param name="data"></param>
         </member>
-        <member name="M:AppServiceProvider.Models.ApiError.#ctor(System.String,System.String)">
+        <member name="M:AppServiceProvider.Models.ApiResult.#ctor(System.String,System.String)">
             <summary>
             建立失敗結果
             </summary>
             <param name="code"></param>
-            <param name="message"></param>
+            /// <param name="message"></param>
         </member>
-        <member name="M:AppServiceProvider.Models.AddUserResult.#ctor(System.String,System.String)">
+        <member name="M:AppServiceProvider.Service.MemberService.GetCacheData(System.String)">
             <summary>
-            建立失敗結果
+            新增/更新 OTP cache data
             </summary>
-            <param name="code"></param>
-            <param name="message"></param>
+            <param name="key">caceh key</param>
+            <returns>回傳 Model 的 list</returns>
+        </member>
+        <member name="M:AppServiceProvider.Service.MemberService.CheckCacheData(System.String,System.String)">
+            <summary>
+            驗證OTP
+            </summary>
+            <param name="key"></param>
+            <param name="otp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AppServiceProvider.Service.MemberService.GetNewCache">
+            <summary>
+            取得新OTP
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

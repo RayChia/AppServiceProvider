@@ -8,12 +8,10 @@ using System.Web.Http;
 using NLog;
 using AppServiceProvider.Models;
 using AppServiceProvider.Service;
-using AppServiceProvider.Service.Order;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.ServiceModel.Dispatcher;
 using System.Web;
-
 using GomypayDataAccess;
 
 namespace AppServiceProvider.Controllers
@@ -21,8 +19,9 @@ namespace AppServiceProvider.Controllers
     public class CodecApiController : ApiController
     {
 
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
         private static OrderService _OrderService = new OrderService();
+        private static MemberService _MemberService = new MemberService();
         //private class CreditCard = AppOrder.CreditCard;
 
         [Route("CodecApi/GG123")]
@@ -59,10 +58,8 @@ namespace AppServiceProvider.Controllers
             {
                 //logger.Debug("APP Request Body : " + body);
                 StrBody = JsonConvert.SerializeObject(body);
-                logger.Debug("App Request Body : " + StrBody);
+                _logger.Debug("App Request Body : " + StrBody);
                 //JObject jObj = new JObject(body);
-
-
 
                 //Json to QuerryString
                 //var jObj = (JObject)JsonConvert.DeserializeObject(JsonConvert.SerializeObject(body));
@@ -77,10 +74,9 @@ namespace AppServiceProvider.Controllers
                 //JsonQueryStringConverter.ConvertValueToString(body, CreditCard);
                 //return query;
 
-                    
                 //string tempResult = _OrderService.CreditCardOrder(StrBody);
                 string tempResult = _OrderService.CreditCardOrder(body);
-                logger.Debug("APP Resp Body : " + tempResult);
+                _logger.Debug("APP Resp Body : " + tempResult);
                 CreditCardResult dataSet = JsonConvert.DeserializeObject<CreditCardResult>(tempResult);
                 //return tempResult;
                 return dataSet;
@@ -108,45 +104,69 @@ namespace AppServiceProvider.Controllers
 
 
         #endregion
-        /*
+        
         /// <summary>
         /// 使用者註冊
         /// </summary>
         /// <param name="body"></param>
         /// <returns></returns>
-        [Route("CodecApi/Register")]
+        [Route("CodecApi/AddUser")]
         [HttpPost]
-        public ApiResult<T> Register([FromBody]AddUser body)
+        public ApiResult Register([FromBody]AddUser body)
         {
-            CreditCardResult Result = new CreditCardResult();
+            //CreditCardResult Result = new CreditCardResult();
             string StrBody = string.Empty;
+            int DBSave = 0;
+            string otp = string.Empty;
             try
             {
                 //logger.Debug("APP Request Body : " + body);
                 StrBody = JsonConvert.SerializeObject(body);
-                logger.Debug("App Request Body : " + StrBody);
-                //JObject jObj = new JObject(body);
+                _logger.Debug("AddUser Request Body : " + StrBody);
+                
+                using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
+                {
+                    //驗手機 身分證字號 重複
+                    if (entities.APP_User.FirstOrDefault(x => x.User_Account == body.phone) != null)
+                    {// Message 手機號碼重複
+                        return new ApiResult("500", "手機號碼重複");
+                    }
+                    if (entities.APP_User.FirstOrDefault(x => x.Identifier == body.Id) != null)
+                    { // Message 身分證字號重複
+                        return new ApiResult("500", "身分證字號重複");
+                    }
 
+                    //取APP_System_ID
+                    APP_User APPUser = new APP_User()
+                    {
+                        System_ID = body.Id,
+                        User_Name = body.name,
+                        User_Password = body.Password,
+                        User_Account = body.phone,//帳號，默認為手機號碼
+                        Sex = body.sex,
+                        OtpCheck = "0",
 
-
-                //Json to QuerryString
-                //var jObj = (JObject)JsonConvert.DeserializeObject(JsonConvert.SerializeObject(body));
-                //JSON 轉 CURL
-                //var query = String.Join("&",
-                //                jObj.Children().Cast<JProperty>()
-                //                .Select(jp => jp.Name + "=" + HttpUtility.UrlEncode(jp.Value.ToString())));
-                //logger.Trace("我是追蹤:Trace222 : " + query);
-
-                //SecurityManager.Authorize(Request);
-                //return body;
-                //JsonQueryStringConverter.ConvertValueToString(body, CreditCard);
-                //return query;
-
-
+                        Builder = "AppServer",
+                        Build_Date = DateTime.Now,
+                        Modifier = "AppServer",
+                        Modify_Date = DateTime.Now
+                    };
+                    
+                    entities.APP_User.Add(APPUser);
+                    DBSave = entities.SaveChanges();
+                    if (DBSave > 0)
+                    {
+                        otp = _MemberService.GetCacheData(body.Id);
+                        //SendSMS
+                        //_MemberService.SendSMS(_MemberService.GetSMSString(body));
+                    }
+                    //return entities.APP_Order.ToList();
+                }
+                //var opt = @"{opt=1234 }";
+                ApiResult dataSet = new ApiResult();
                 //string tempResult = _OrderService.CreditCardOrder(StrBody);
-                string tempResult = _OrderService.CreditCardOrder(body);
-                logger.Debug("APP Resp Body : " + tempResult);
-                CreditCardResult dataSet = JsonConvert.DeserializeObject<CreditCardResult>(tempResult);
+
+                //ApiResult dataSet = JsonConvert.DeserializeObject<ApiResult>();
                 //return tempResult;
                 return dataSet;
             }
@@ -156,7 +176,93 @@ namespace AppServiceProvider.Controllers
             }
         }
 
-        */
+
+        /// <summary>
+        /// 使用者簡訊驗證
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        [Route("CodecApi/CheckOTP")]
+        [HttpPost]
+        public ApiResult AddUserAuth([FromBody]CheckOTP body)
+        {   
+            //ApiResult Result = new ApiResult();
+            int DBSave = 0;
+            string otp = string.Empty;
+            try
+            {
+                if (_MemberService.CheckCacheData(body.ID, body.otp))
+                {//OTP Check OK
+                    using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
+                    {
+                        APP_User UpdateAppUser = entities.APP_User.FirstOrDefault(c => c.Identifier == body.ID);
+                        if (UpdateAppUser != null)
+                        {
+                            UpdateAppUser.OtpCheck = "1";
+                        }
+
+                        //APP_User 新增一個帳號狀態欄位???
+                        DBSave = entities.SaveChanges();
+
+                        //if (DBSave > 0)
+                        //{
+                        //    Result.Message = "新增使用者簡訊驗證成功";
+                        //    return new ApiResult();
+                        //}
+                        //else
+                        //{// otp update error
+                            
+                        //}
+                        //return entities.APP_Order.ToList();
+                    }
+                    //Result.Message = "新增使用者簡訊驗證成功";
+                    return new ApiResult();
+                }
+                else 
+                {
+                    return new ApiResult("500","驗證碼錯誤");
+                    //return otp wrong
+                }
+
+                //return Result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// 重送使用者簡訊驗證
+        /// </summary> 
+        /// <param name="body"></param>
+        /// <returns></returns>
+        [Route("CodecApi/ResendSMS")]
+        [HttpPost]
+        public ApiResult ResendSMS([FromBody]ResendSMS body)
+        {
+            //ApiResult Result = new ApiResult();
+            int DBSave = 0;
+            string otp = string.Empty;
+            try
+            {
+                 _MemberService.GetCacheData(body.ID);
+                    return new ApiResult();
+                
+                
+                    return new ApiResult("500", "驗證碼錯誤");
+                    //return otp wrong
+                
+
+                //return Result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
 
 

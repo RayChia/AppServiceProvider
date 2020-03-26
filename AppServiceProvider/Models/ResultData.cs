@@ -8,7 +8,7 @@ namespace AppServiceProvider.Models
     /// <summary>
     /// API呼叫時，傳回的統一物件
     /// </summary>
-    public class ApiResult<T>
+    public class ApiResult//<T>
     {
         /// <summary>
         /// 執行成功與否
@@ -29,31 +29,28 @@ namespace AppServiceProvider.Models
         /// <summary>
         /// 資料本體
         /// </summary>
-        public T Data { get; set; }
+        //public T Data { get; set; }
 
 
-        public ApiResult() { }
+        //public ApiResult() { }
 
         /// <summary>
         /// 建立成功結果
         /// </summary>
         /// <param name="data"></param>
-        public ApiResult(T data)
+        public ApiResult()//(T data)
         {
             Code = "0000";
             Succ = true;
             DataTime = DateTime.Now;
-            Data = data;
+            //Data = data;
         }
-    }
-    public class ApiError : ApiResult<object>
-    {
         /// <summary>
         /// 建立失敗結果
         /// </summary>
         /// <param name="code"></param>
-        /// <param name="message"></param>
-        public ApiError(string code, string message)
+        /// /// <param name="message"></param>
+        public ApiResult(string code, string message)
         {
             Code = code;
             Succ = false;
@@ -61,6 +58,22 @@ namespace AppServiceProvider.Models
             Message = message;
         }
     }
+    //public class ApiError : ApiResult//<object>
+    //{
+    //    /// <summary>
+    //    /// 建立失敗結果
+    //    /// </summary>
+    //    /// <param name="code"></param>
+    //    /// <param name="message"></param>
+    //    public ApiError(string code, string message)
+    //    {
+    //        Code = code;
+    //        Succ = false;
+    //        this.DataTime = DateTime.Now;
+    //        Message = message;
+    //    }
+    //}
+    /*
     public class AddUserResult : ApiResult<object>
     {
         public string Otp { get; set; }
@@ -77,4 +90,5 @@ namespace AppServiceProvider.Models
             Message = message;
         }
     }
+    */
 }

@@ -14,15 +14,14 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Data;
 
-namespace AppServiceProvider.Service.Order
+namespace AppServiceProvider.Service
 {
-    public class OrderService : BaseService
+    public class OrderService
     {
         private static Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         public string CreditCardOrder(CreditCard BodyObj)
         {
-
             try
             {
                 string RespBody = string.Empty;
@@ -81,7 +80,7 @@ namespace AppServiceProvider.Service.Order
                     //return entities.APP_Order.ToList();
                 }
 
-                //DB OK                
+                //DB新增 OK                
                 if (DBSave>0)
                 {
                     //送API 物件轉QueryString
@@ -116,6 +115,10 @@ namespace AppServiceProvider.Service.Order
 
                         DBSave = entities.SaveChanges();
                     }
+                    if (DBSave == 0)
+                    {//更新失敗 
+                        logger.Debug("CreditCardOrder : " + "CreditCardOrder  Update fail !!!");
+                    }
                 }
                 else //授權失敗
                 { 
@@ -125,7 +128,7 @@ namespace AppServiceProvider.Service.Order
             }
             catch (Exception ex)
             {
-                logger.Debug("Exception : " + ex.StackTrace);
+                logger.Error("Exception : " + ex.StackTrace);
             }
 
 
