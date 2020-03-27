@@ -40,4 +40,10 @@ namespace AppServiceProvider.Models
         public string ID { get; set; } = "";
         public string phone { get; set; } = "";
     }
+    public class UserLogin
+    {
+        public string account { get; set; } = "";
+        public string password { get; set; } = "";
+
+    }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Gomypay_AppDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Gomypay_AppDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="APP_Activity">
           <Key>
             <PropertyRef Name="ID" />
@@ -303,6 +303,8 @@
           <Property Name="Birthday" Type="date" />
           <Property Name="RN_verified" Type="nvarchar" MaxLength="1" />
           <Property Name="IsDuplicate" Type="nvarchar" MaxLength="1" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="1" />
+          <Property Name="OtpCheck" Type="nvarchar" MaxLength="1" />
           <Property Name="Address_City" Type="nvarchar" MaxLength="5" />
           <Property Name="Address_Zone" Type="nvarchar" MaxLength="5" />
           <Property Name="Address_ZIP" Type="nvarchar" MaxLength="5" />
@@ -338,8 +340,7 @@
           <EntitySet Name="APP_TCash" EntityType="Self.APP_TCash" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="APP_User" EntityType="Self.APP_User" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Gomypay_AppDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -653,6 +654,8 @@
           <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="Modify_Date" Type="DateTime" Precision="3" />
           <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="OtpCheck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="Gomypay_AppEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="APP_Activity" EntityType="Self.APP_Activity" />
@@ -969,6 +972,8 @@
           <EntitySetMapping Name="APP_User">
             <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_User">
               <MappingFragment StoreEntitySet="APP_User">
+                <ScalarProperty Name="OtpCheck" ColumnName="OtpCheck" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="System_ID" ColumnName="System_ID" />
                 <ScalarProperty Name="User_Account" ColumnName="User_Account" />

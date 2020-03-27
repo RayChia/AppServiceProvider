@@ -19,15 +19,7 @@ namespace GomypayDataAccess
             : base("name=Gomypay_AppEntities")
         {
         }
-        public int GetNextAppOrderID()
-        {
-            var rawQuery = Database.SqlQuery<int>("SELECT NEXT VALUE FOR dbo.APOrder_ID");
-            var task = rawQuery.SingleAsync();
-            int nextVal = task.Result;
-
-            return nextVal;
-        }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

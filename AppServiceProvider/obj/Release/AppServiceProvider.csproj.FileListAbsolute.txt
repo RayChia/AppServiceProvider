@@ -268,3 +268,10 @@ D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\obj\Release\AppServiceProvi
 D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\obj\Release\AppServiceProvider.csproj.CopyComplete
 D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\obj\Release\AppServiceProvider.dll
 D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\obj\Release\AppServiceProvider.pdb
+D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\EntityFramework.dll
+D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\EntityFramework.SqlServer.dll
+D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\GomypayDataAccess.dll
+D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\GomypayDataAccess.pdb
+D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\GomypayDataAccess.dll.config
+D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\EntityFramework.xml
+D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\EntityFramework.SqlServer.xml

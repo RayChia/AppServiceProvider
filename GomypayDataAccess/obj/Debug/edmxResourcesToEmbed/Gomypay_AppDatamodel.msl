@@ -288,6 +288,8 @@
     <EntitySetMapping Name="APP_User">
       <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_User">
         <MappingFragment StoreEntitySet="APP_User">
+          <ScalarProperty Name="OtpCheck" ColumnName="OtpCheck" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="System_ID" ColumnName="System_ID" />
           <ScalarProperty Name="User_Account" ColumnName="User_Account" />

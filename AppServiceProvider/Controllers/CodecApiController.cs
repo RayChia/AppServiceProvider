@@ -68,7 +68,7 @@ namespace AppServiceProvider.Controllers
                 //                jObj.Children().Cast<JProperty>()
                 //                .Select(jp => jp.Name + "=" + HttpUtility.UrlEncode(jp.Value.ToString())));
                 //logger.Trace("我是追蹤:Trace222 : " + query);
-                
+
                 //SecurityManager.Authorize(Request);
                 //return body;
                 //JsonQueryStringConverter.ConvertValueToString(body, CreditCard);
@@ -95,16 +95,16 @@ namespace AppServiceProvider.Controllers
         [HttpPost]
         public string UnionPaycard([FromBody]string body)
         {
-           
+
 
             //SecurityManager.Authorize(Request);
-            return  body; //Json(new ApiResult<byte[]>);
+            return body; //Json(new ApiResult<byte[]>);
         }
 
 
 
         #endregion
-        
+
         /// <summary>
         /// 使用者註冊
         /// </summary>
@@ -118,47 +118,78 @@ namespace AppServiceProvider.Controllers
             string StrBody = string.Empty;
             int DBSave = 0;
             string otp = string.Empty;
+            string SMSResult = string.Empty;
             try
             {
+                bool recover = false;
                 //logger.Debug("APP Request Body : " + body);
                 StrBody = JsonConvert.SerializeObject(body);
                 _logger.Debug("AddUser Request Body : " + StrBody);
-                
+
                 using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
                 {
+
                     //驗手機 身分證字號 重複
                     if (entities.APP_User.FirstOrDefault(x => x.User_Account == body.phone) != null)
                     {// Message 手機號碼重複
-                        return new ApiResult("500", "手機號碼重複");
+                        if (entities.APP_User.FirstOrDefault(x => x.OtpCheck == "1") != null)
+                        {
+                            return new ApiResult("500", "手機號碼重複");
+                        }
+                        recover = true;
                     }
                     if (entities.APP_User.FirstOrDefault(x => x.Identifier == body.Id) != null)
                     { // Message 身分證字號重複
-                        return new ApiResult("500", "身分證字號重複");
+                        if (entities.APP_User.FirstOrDefault(x => x.OtpCheck == "1") != null)
+                        {
+                            return new ApiResult("500", "身分證字號重複");
+                        }
+                        recover = true;
                     }
 
-                    //取APP_System_ID
-                    APP_User APPUser = new APP_User()
+                    if (recover != true)
                     {
-                        System_ID = body.Id,
-                        User_Name = body.name,
-                        User_Password = body.Password,
-                        User_Account = body.phone,//帳號，默認為手機號碼
-                        Sex = body.sex,
-                        OtpCheck = "0",
+                        //取APP_System_ID
+                        APP_User APPUser = new APP_User()
+                        {
+                            System_ID = body.Id,
+                            Identifier=body.Id,
+                            User_Name = body.name,
+                            User_Password = body.Password,
+                            User_Account = body.phone,//帳號，默認為手機號碼
+                            Sex = body.sex,
+                            OtpCheck = "0",
 
-                        Builder = "AppServer",
-                        Build_Date = DateTime.Now,
-                        Modifier = "AppServer",
-                        Modify_Date = DateTime.Now
-                    };
-                    
-                    entities.APP_User.Add(APPUser);
-                    DBSave = entities.SaveChanges();
-                    if (DBSave > 0)
+                            Builder = "AppServer",
+                            Build_Date = DateTime.Now,
+                            Modifier = "AppServer",
+                            Modify_Date = DateTime.Now
+                        };
+                        entities.APP_User.Add(APPUser);
+                        DBSave = entities.SaveChanges();
+                    }
+                    else
                     {
-                        otp = _MemberService.GetCacheData(body.Id);
+                        APP_User UpdateAppOrder = entities.APP_User.First(c => c.System_ID == body.Id);
+                        //UpdateAppOrder.System_ID = body.Id;
+                        UpdateAppOrder.Identifier = body.Id;
+                        UpdateAppOrder.User_Name = body.name;
+                        UpdateAppOrder.User_Password = body.Password;
+                        UpdateAppOrder.User_Account = body.phone;//帳號，默認為手機號碼
+                        UpdateAppOrder.Sex = body.sex;
+                        UpdateAppOrder.OtpCheck = "0";
+
+                        UpdateAppOrder.Modifier = "AppServer";
+                        UpdateAppOrder.Modify_Date = DateTime.Now;
+
+                        DBSave = entities.SaveChanges();
+
+                    }
+                    if (DBSave > 0)
+                    {  
+                        //otp = _MemberService.GetCacheData(body.Id);
                         //SendSMS
-                        //_MemberService.SendSMS(_MemberService.GetSMSString(body));
+                        SMSResult = _MemberService.SendSMS(_MemberService.GetSMSString(body));
                     }
                     //return entities.APP_Order.ToList();
                 }
@@ -184,8 +215,8 @@ namespace AppServiceProvider.Controllers
         /// <returns></returns>
         [Route("CodecApi/CheckOTP")]
         [HttpPost]
-        public ApiResult AddUserAuth([FromBody]CheckOTP body)
-        {   
+        public ApiResult CheckOTP([FromBody]CheckOTP body)
+        {
             //ApiResult Result = new ApiResult();
             int DBSave = 0;
             string otp = string.Empty;
@@ -193,6 +224,7 @@ namespace AppServiceProvider.Controllers
             {
                 if (_MemberService.CheckCacheData(body.ID, body.otp))
                 {//OTP Check OK
+                    _logger.Info("==CheckOTP OK== : ID : " + body.ID + " otp : " + body.otp);
                     using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
                     {
                         APP_User UpdateAppUser = entities.APP_User.FirstOrDefault(c => c.Identifier == body.ID);
@@ -204,6 +236,8 @@ namespace AppServiceProvider.Controllers
                         //APP_User 新增一個帳號狀態欄位???
                         DBSave = entities.SaveChanges();
 
+                        if(DBSave>0)
+                        { _logger.Info("==CheckOTP== DB Update OK !!!"); }
                         //if (DBSave > 0)
                         //{
                         //    Result.Message = "新增使用者簡訊驗證成功";
@@ -211,16 +245,17 @@ namespace AppServiceProvider.Controllers
                         //}
                         //else
                         //{// otp update error
-                            
+
                         //}
                         //return entities.APP_Order.ToList();
                     }
                     //Result.Message = "新增使用者簡訊驗證成功";
                     return new ApiResult();
                 }
-                else 
+                else
                 {
-                    return new ApiResult("500","驗證碼錯誤");
+                    _logger.Info("==CheckOTP== FAILD!!! : ID : " + body.ID + " otp : " + body.otp);
+                    return new ApiResult("500", "驗證碼錯誤");
                     //return otp wrong
                 }
 
@@ -243,16 +278,15 @@ namespace AppServiceProvider.Controllers
         {
             //ApiResult Result = new ApiResult();
             int DBSave = 0;
-            string otp = string.Empty;
+            //string otp = string.Empty;
+            string result;
             try
-            {
-                 _MemberService.GetCacheData(body.ID);
-                    return new ApiResult();
-                
-                
-                    return new ApiResult("500", "驗證碼錯誤");
-                    //return otp wrong
-                
+            {//取出Cache中的QueryString 重送簡訊 
+                _MemberService.SendSMS(_MemberService.ReGetSMSString(body.phone));
+                //_MemberService.GetCacheData(body.ID);
+                return new ApiResult();
+
+                //return otp wrong
 
                 //return Result;
             }
@@ -263,6 +297,46 @@ namespace AppServiceProvider.Controllers
         }
 
 
+        /// <summary>
+        /// 使用者登入
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        [Route("CodecApi/Login")]
+        [HttpPost]
+        public ApiResult Login([FromBody]UserLogin body)
+        {
+            //CreditCardResult Result = new CreditCardResult();
+            string StrBody = string.Empty;
+            int DBSave = 0;
+            string otp = string.Empty;
+            string SMSResult = string.Empty;
+            try
+            {   
+                StrBody = JsonConvert.SerializeObject(body);
+                _logger.Info("Login Request Body : " + StrBody);
+
+                using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
+                {
+                    if (entities.APP_User.FirstOrDefault(
+                        x => x.User_Account == body.account &&
+                        x.User_Password == body.password) != null)
+                    {
+                        return new ApiResult();
+                    }
+                    else
+                    {
+                        return new ApiResult("500", "帳號或密碼錯誤");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Debug("==Login== : " + ex.ToString());
+                _logger.Debug("==Login== : " + ex.StackTrace.ToString());
+                throw ex;
+            }
+        }
 
 
 

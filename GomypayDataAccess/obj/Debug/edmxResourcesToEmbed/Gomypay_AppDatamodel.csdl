@@ -310,6 +310,8 @@
     <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
     <Property Name="Modify_Date" Type="DateTime" Precision="3" />
     <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="OtpCheck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityContainer Name="Gomypay_AppEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="APP_Activity" EntityType="Self.APP_Activity" />

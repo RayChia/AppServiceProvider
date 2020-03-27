@@ -502,7 +502,7 @@
             <param name="body"></param>
             <returns></returns>
         </member>
-        <member name="M:AppServiceProvider.Controllers.CodecApiController.AddUserAuth(AppServiceProvider.Models.CheckOTP)">
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.CheckOTP(AppServiceProvider.Models.CheckOTP)">
             <summary>
             使用者簡訊驗證
             </summary>
@@ -513,6 +513,13 @@
             <summary>
             重送使用者簡訊驗證
             </summary> 
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.Login(AppServiceProvider.Models.UserLogin)">
+            <summary>
+            使用者登入
+            </summary>
             <param name="body"></param>
             <returns></returns>
         </member>
@@ -574,7 +581,7 @@
             新增/更新 OTP cache data
             </summary>
             <param name="key">caceh key</param>
-            <returns>回傳 Model 的 list</returns>
+            <returns>儲存快取OTP  + 回傳OTP</returns>
         </member>
         <member name="M:AppServiceProvider.Service.MemberService.CheckCacheData(System.String,System.String)">
             <summary>
@@ -584,12 +591,12 @@
             <param name="otp"></param>
             <returns></returns>
         </member>
-        <member name="M:AppServiceProvider.Service.MemberService.GetNewCache">
+        <member name="M:AppServiceProvider.Service.MemberService.GetNewCache(System.Int32)">
             <summary>
             取得新OTP
             </summary>
-            <param name="key"></param>
-            <returns></returns>
+            <param name="num"></param>
+            <returns>產生num長度 隨機亂數</returns>
         </member>
     </members>
 </doc>
