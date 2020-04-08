@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Gomypay_AppDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="APP_Activity">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Activity_ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Activity_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="APP_Customer_ID" Type="nvarchar" MaxLength="32" />
+    <Property Name="Activity_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Activity_content" Type="nvarchar(max)" />
+    <Property Name="Activity_Pic" Type="nvarchar(max)" />
+    <Property Name="Date1" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="Date2" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="Builder" Type="nvarchar" MaxLength="32" />
+    <Property Name="Build_Date" Type="datetime" />
+    <Property Name="Modifier" Type="nvarchar" MaxLength="32" />
+    <Property Name="Modify_Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="APP_Category_Big">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="BCategory_ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BCategory_ID" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="BCategory_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="APP_Category_Small">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SCategory_ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SCategory_ID" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="SCategory_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="APP_Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="APP_Customer_ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APP_Customer_ID" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Grade_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Customer_ID" Type="nvarchar" MaxLength="32" />
+    <Property Name="Dealer_ID" Type="nvarchar" MaxLength="20" />
+    <Property Name="Customer_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Store_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pic" Type="nvarchar(max)" />
+    <Property Name="Identifier" Type="nvarchar" MaxLength="11" />
+    <Property Name="Personal_ID" Type="nvarchar" MaxLength="10" />
+    <Property Name="Mail_Address" Type="nvarchar(max)" />
+    <Property Name="Telm" Type="nvarchar" MaxLength="20" />
+    <Property Name="BCategory_ID" Type="nvarchar" MaxLength="5" />
+    <Property Name="SCategory_ID" Type="nvarchar" MaxLength="5" />
+    <Property Name="Address_zip" Type="nvarchar" MaxLength="5" />
+    <Property Name="Address_City" Type="nvarchar" MaxLength="10" />
+    <Property Name="Address_Zone" Type="nvarchar" MaxLength="10" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Customer_Password" Type="nvarchar" MaxLength="32" />
+    <Property Name="Customer_Checkstr" Type="nvarchar" MaxLength="32" />
+    <Property Name="Use_Bonus" Type="nvarchar" MaxLength="1" />
+    <Property Name="Use_Bonus_Percent" Type="float" />
+    <Property Name="APP_Creditpay_Bank" Type="nvarchar" MaxLength="10" />
+    <Property Name="APP_Creditpay_Fee" Type="nvarchar" MaxLength="10" />
+    <Property Name="APP_Creditpay_Singelpay_Max" Type="nvarchar" MaxLength="20" />
+    <Property Name="APP_Creditpay_Daypay_Max" Type="nvarchar" MaxLength="20" />
+    <Property Name="APP_Creditpay_Monthpay_Max" Type="nvarchar" MaxLength="20" />
+    <Property Name="Request_Payment_Bank" Type="nvarchar" MaxLength="10" />
+    <Property Name="Request_Payment_Branch" Type="nvarchar" MaxLength="10" />
+    <Property Name="Request_Payment_Account_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Request_Payment_Account" Type="nvarchar" MaxLength="20" />
+    <Property Name="Statu" Type="nvarchar" MaxLength="1" />
+    <Property Name="Facebook" Type="nvarchar" MaxLength="500" />
+    <Property Name="Line" Type="nvarchar" MaxLength="500" />
+    <Property Name="Istransaction" Type="nvarchar" MaxLength="1" />
+    <Property Name="Build_Date" Type="datetime" />
+    <Property Name="Builder" Type="nvarchar" MaxLength="32" />
+    <Property Name="Modify_Date" Type="datetime" />
+    <Property Name="Modifier" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="APP_Grade">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Grade_No" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Grade_No" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Grade_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="APP_Mission">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Misson_No" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Misson_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Misson_Mode_No" Type="nvarchar" MaxLength="5" />
+    <Property Name="Misson_Start_Date" Type="datetime" />
+    <Property Name="Misson_End_Date" Type="datetime" />
+    <Property Name="Build_Date" Type="datetime" />
+    <Property Name="Builder" Type="nvarchar" MaxLength="32" />
+    <Property Name="Modify_Date" Type="datetime" />
+    <Property Name="Modifier" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="APP_Mission_Item">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Misson_Item_No" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Misson_Item_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Misson_No" Type="nvarchar" MaxLength="20" />
+    <Property Name="Misson_Mode_No" Type="nvarchar" MaxLength="5" />
+    <Property Name="System_ID" Type="nvarchar" MaxLength="32" />
+    <Property Name="Creat_Day" Type="datetime" />
+  </EntityType>
+  <EntityType Name="APP_Misson_Mode">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Misson_Mode_No" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Misson_Mode_No" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="Misson_Mode_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="APP_News">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="News_No" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="News_No" Type="int" Nullable="false" />
+    <Property Name="News_Type" Type="nvarchar" MaxLength="1" />
+    <Property Name="News_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="News_Content" Type="nvarchar(max)" />
+    <Property Name="Statu" Type="nvarchar" MaxLength="1" />
+    <Property Name="Creat_Day" Type="datetime" />
+    <Property Name="Builder" Type="nvarchar" MaxLength="20" />
+    <Property Name="Modifier" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="APP_Notice">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Notice_No" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Notice_No" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Notice_Type" Type="nvarchar" MaxLength="1" />
+    <Property Name="Notice_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Notice_content" Type="nvarchar(max)" />
+    <Property Name="Notice_Day" Type="datetime" />
+    <Property Name="Creat_Day" Type="datetime" />
+    <Property Name="IsNotice" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="APP_Order">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="APOrder_ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APOrder_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Order_ID" Type="nvarchar" MaxLength="20" />
+    <Property Name="User_System_ID" Type="nvarchar" MaxLength="32" />
+    <Property Name="Customer_ID" Type="nvarchar" MaxLength="32" />
+    <Property Name="Customer_Order_ID" Type="nvarchar" MaxLength="20" />
+    <Property Name="Promotion_ID" Type="nvarchar" MaxLength="20" />
+    <Property Name="Use_Bonus" Type="bigint" />
+    <Property Name="Return_Bonus" Type="bigint" />
+    <Property Name="IsInstallment" Type="nvarchar" MaxLength="1" />
+    <Property Name="Installment_Period" Type="int" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="Pay_Amount" Type="int" />
+    <Property Name="Pay_Result" Type="nvarchar" MaxLength="1" />
+    <Property Name="Approve_Code" Type="nvarchar" MaxLength="6" />
+    <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="10" />
+    <Property Name="Goods_Return_Statu" Type="nvarchar" MaxLength="1" />
+    <Property Name="Build_Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="APP_Product">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="APP_Customer_ID" Type="nvarchar" MaxLength="32" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_Picture" Type="nvarchar(max)" />
+    <Property Name="Product_Info" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="APP_Product_Big">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="BProduct_ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BProduct_ID" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="BProduct_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="APP_Product_Small">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SProduct_ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SProduct_ID" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="SProduct_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="APP_Promotion">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Promotion_ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Promotion_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Activity_ID" Type="nvarchar" MaxLength="20" />
+    <Property Name="System_ID" Type="nvarchar" MaxLength="32" />
+    <Property Name="UseDate" Type="datetime" />
+    <Property Name="IsUsed" Type="nvarchar" MaxLength="1" />
+    <Property Name="Creat_Day" Type="datetime" />
+  </EntityType>
+  <EntityType Name="APP_SlideShow">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Pic" Type="nvarchar(max)" />
+    <Property Name="Statu" Type="nvarchar" MaxLength="1" />
+    <Property Name="Creat_Day" Type="datetime" />
+    <Property Name="Builder" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="APP_SurPrise_Item">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SurItem_No" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SurItem_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SurBox_No" Type="nvarchar" MaxLength="20" />
+    <Property Name="System_ID" Type="nvarchar" MaxLength="32" />
+    <Property Name="Serial_Number" Type="nvarchar" MaxLength="20" />
+    <Property Name="Memo" Type="nvarchar(max)" />
+    <Property Name="Creat_Day" Type="datetime" />
+  </EntityType>
+  <EntityType Name="APP_SurpriseBox">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SurBox_No" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SurBox_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SurBox_Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="SurBox_Num" Type="nvarchar" MaxLength="20" />
+    <Property Name="SurBox_Pic" Type="nvarchar(max)" />
+    <Property Name="SurBox_Start_Date" Type="datetime" />
+    <Property Name="SurBox_End_Date" Type="datetime" />
+    <Property Name="IsRandom" Type="nvarchar" MaxLength="1" />
+    <Property Name="Build_Date" Type="datetime" />
+    <Property Name="Builder" Type="nvarchar" MaxLength="32" />
+    <Property Name="Modify_Date" Type="datetime" />
+    <Property Name="Modifier" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="APP_TCash">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Cash_No" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cash_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="APP_Customer_ID" Type="nvarchar" MaxLength="32" />
+    <Property Name="Request_Payment_Bank" Type="nvarchar" MaxLength="10" />
+    <Property Name="Request_Payment_Branch" Type="nvarchar" MaxLength="10" />
+    <Property Name="Request_Payment_Account_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Request_Payment_Account" Type="nvarchar" MaxLength="20" />
+    <Property Name="Transfer_Cash" Type="nvarchar" MaxLength="20" />
+    <Property Name="Use_Bonus" Type="bigint" />
+    <Property Name="ISCheck" Type="nvarchar" MaxLength="1" />
+    <Property Name="Check_Date" Type="datetime" />
+    <Property Name="Checker" Type="nvarchar" MaxLength="20" />
+    <Property Name="Build_Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="APP_User">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="System_ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="System_ID" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="User_Account" Type="nvarchar" MaxLength="10" />
+    <Property Name="User_Password" Type="nvarchar" MaxLength="32" />
+    <Property Name="User_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Identifier" Type="nvarchar" MaxLength="10" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Birthday" Type="date" />
+    <Property Name="RN_verified" Type="nvarchar" MaxLength="1" />
+    <Property Name="IsDuplicate" Type="nvarchar" MaxLength="1" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="1" />
+    <Property Name="OtpCheck" Type="nvarchar" MaxLength="1" />
+    <Property Name="Address_City" Type="nvarchar" MaxLength="5" />
+    <Property Name="Address_Zone" Type="nvarchar" MaxLength="5" />
+    <Property Name="Address_ZIP" Type="nvarchar" MaxLength="5" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Bonus_Point" Type="bigint" />
+    <Property Name="Invoice_Carrier" Type="nvarchar" MaxLength="20" />
+    <Property Name="Referrer_Type" Type="nchar" MaxLength="1" />
+    <Property Name="Referrer_ID" Type="nvarchar" MaxLength="32" />
+    <Property Name="Build_Date" Type="datetime" />
+    <Property Name="Builder" Type="nvarchar" MaxLength="32" />
+    <Property Name="Modify_Date" Type="datetime" />
+    <Property Name="Modifier" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityContainer Name="Gomypay_AppDBModelStoreContainer">
+    <EntitySet Name="APP_Activity" EntityType="Self.APP_Activity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_Category_Big" EntityType="Self.APP_Category_Big" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_Category_Small" EntityType="Self.APP_Category_Small" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_Customer" EntityType="Self.APP_Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_Grade" EntityType="Self.APP_Grade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_Mission" EntityType="Self.APP_Mission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_Mission_Item" EntityType="Self.APP_Mission_Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_Misson_Mode" EntityType="Self.APP_Misson_Mode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_News" EntityType="Self.APP_News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_Notice" EntityType="Self.APP_Notice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_Order" EntityType="Self.APP_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_Product" EntityType="Self.APP_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_Product_Big" EntityType="Self.APP_Product_Big" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_Product_Small" EntityType="Self.APP_Product_Small" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_Promotion" EntityType="Self.APP_Promotion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_SlideShow" EntityType="Self.APP_SlideShow" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_SurPrise_Item" EntityType="Self.APP_SurPrise_Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_SurpriseBox" EntityType="Self.APP_SurpriseBox" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_TCash" EntityType="Self.APP_TCash" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_User" EntityType="Self.APP_User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

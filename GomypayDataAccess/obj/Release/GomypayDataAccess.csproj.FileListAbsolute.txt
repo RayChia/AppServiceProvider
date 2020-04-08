@@ -1,0 +1,12 @@
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\bin\Release\GomypayDataAccess.dll.config
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\bin\Release\GomypayDataAccess.dll
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\bin\Release\GomypayDataAccess.pdb
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\bin\Release\EntityFramework.dll
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\bin\Release\EntityFramework.SqlServer.dll
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\bin\Release\EntityFramework.xml
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\bin\Release\EntityFramework.SqlServer.xml
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\bin\Release\zh-Hant\EntityFramework.resources.dll
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\obj\Release\GomypayDataAccess.csprojAssemblyReference.cache
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\obj\Release\GomypayDataAccess.csproj.CopyComplete
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\obj\Release\GomypayDataAccess.dll
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\obj\Release\GomypayDataAccess.pdb

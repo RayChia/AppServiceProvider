@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Gomypay_AppDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="APP_Activity">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Activity_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Activity_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="APP_Customer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Activity_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Activity_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activity_Pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date1" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date2" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Build_Date" Type="DateTime" Precision="3" />
+    <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Modify_Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="APP_Category_Big">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="BCategory_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BCategory_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BCategory_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APP_Category_Small">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SCategory_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SCategory_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SCategory_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APP_Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="APP_Customer_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APP_Customer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Grade_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Customer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Dealer_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Store_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Identifier" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Personal_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Mail_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Telm" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BCategory_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="SCategory_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Address_zip" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Address_City" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Address_Zone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Checkstr" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Use_Bonus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Use_Bonus_Percent" Type="Double" />
+    <Property Name="APP_Creditpay_Bank" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="APP_Creditpay_Fee" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="APP_Creditpay_Singelpay_Max" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="APP_Creditpay_Daypay_Max" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="APP_Creditpay_Monthpay_Max" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Request_Payment_Bank" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Request_Payment_Branch" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Request_Payment_Account_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Request_Payment_Account" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Statu" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Facebook" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Line" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Istransaction" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Build_Date" Type="DateTime" Precision="3" />
+    <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Modify_Date" Type="DateTime" Precision="3" />
+    <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APP_Grade">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Grade_No" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Grade_No" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Grade_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APP_Mission">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Misson_No" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Misson_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Misson_Mode_No" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Misson_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Misson_End_Date" Type="DateTime" Precision="3" />
+    <Property Name="Build_Date" Type="DateTime" Precision="3" />
+    <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Modify_Date" Type="DateTime" Precision="3" />
+    <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APP_Mission_Item">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Misson_Item_No" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Misson_Item_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Misson_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Misson_Mode_No" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="System_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Creat_Day" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="APP_Misson_Mode">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Misson_Mode_No" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Misson_Mode_No" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Misson_Mode_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APP_News">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="News_No" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="News_No" Type="Int32" Nullable="false" />
+    <Property Name="News_Type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="News_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="News_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Statu" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Creat_Day" Type="DateTime" Precision="3" />
+    <Property Name="Builder" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modifier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APP_Notice">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Notice_No" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Notice_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Notice_Type" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Notice_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Notice_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notice_Day" Type="DateTime" Precision="3" />
+    <Property Name="Creat_Day" Type="DateTime" Precision="3" />
+    <Property Name="IsNotice" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APP_Order">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="APOrder_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APOrder_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Order_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="User_System_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Order_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Promotion_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Use_Bonus" Type="Int64" />
+    <Property Name="Return_Bonus" Type="Int64" />
+    <Property Name="IsInstallment" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Installment_Period" Type="Int32" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="Pay_Amount" Type="Int32" />
+    <Property Name="Pay_Result" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Approve_Code" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="InvoiceNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Goods_Return_Statu" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Build_Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="APP_Product">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="APP_Customer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APP_Product_Big">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="BProduct_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BProduct_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BProduct_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APP_Product_Small">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SProduct_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SProduct_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SProduct_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APP_Promotion">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Promotion_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Promotion_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Activity_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="System_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="UseDate" Type="DateTime" Precision="3" />
+    <Property Name="IsUsed" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Creat_Day" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="APP_SlideShow">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Statu" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Creat_Day" Type="DateTime" Precision="3" />
+    <Property Name="Builder" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APP_SurPrise_Item">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SurItem_No" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SurItem_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SurBox_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="System_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Serial_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Creat_Day" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="APP_SurpriseBox">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SurBox_No" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SurBox_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SurBox_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SurBox_Num" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SurBox_Pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SurBox_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="SurBox_End_Date" Type="DateTime" Precision="3" />
+    <Property Name="IsRandom" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Build_Date" Type="DateTime" Precision="3" />
+    <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Modify_Date" Type="DateTime" Precision="3" />
+    <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APP_TCash">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Cash_No" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cash_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="APP_Customer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Request_Payment_Bank" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Request_Payment_Branch" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Request_Payment_Account_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Request_Payment_Account" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Transfer_Cash" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Use_Bonus" Type="Int64" />
+    <Property Name="ISCheck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Check_Date" Type="DateTime" Precision="3" />
+    <Property Name="Checker" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Build_Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="APP_User">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="System_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="System_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="User_Account" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="User_Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Identifier" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="RN_verified" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="IsDuplicate" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Address_City" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Address_Zone" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Address_ZIP" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Bonus_Point" Type="Int64" />
+    <Property Name="Invoice_Carrier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Referrer_Type" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="Referrer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Build_Date" Type="DateTime" Precision="3" />
+    <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Modify_Date" Type="DateTime" Precision="3" />
+    <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="OtpCheck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="Gomypay_AppEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="APP_Activity" EntityType="Self.APP_Activity" />
+    <EntitySet Name="APP_Category_Big" EntityType="Self.APP_Category_Big" />
+    <EntitySet Name="APP_Category_Small" EntityType="Self.APP_Category_Small" />
+    <EntitySet Name="APP_Customer" EntityType="Self.APP_Customer" />
+    <EntitySet Name="APP_Grade" EntityType="Self.APP_Grade" />
+    <EntitySet Name="APP_Mission" EntityType="Self.APP_Mission" />
+    <EntitySet Name="APP_Mission_Item" EntityType="Self.APP_Mission_Item" />
+    <EntitySet Name="APP_Misson_Mode" EntityType="Self.APP_Misson_Mode" />
+    <EntitySet Name="APP_News" EntityType="Self.APP_News" />
+    <EntitySet Name="APP_Notice" EntityType="Self.APP_Notice" />
+    <EntitySet Name="APP_Order" EntityType="Self.APP_Order" />
+    <EntitySet Name="APP_Product" EntityType="Self.APP_Product" />
+    <EntitySet Name="APP_Product_Big" EntityType="Self.APP_Product_Big" />
+    <EntitySet Name="APP_Product_Small" EntityType="Self.APP_Product_Small" />
+    <EntitySet Name="APP_Promotion" EntityType="Self.APP_Promotion" />
+    <EntitySet Name="APP_SlideShow" EntityType="Self.APP_SlideShow" />
+    <EntitySet Name="APP_SurPrise_Item" EntityType="Self.APP_SurPrise_Item" />
+    <EntitySet Name="APP_SurpriseBox" EntityType="Self.APP_SurpriseBox" />
+    <EntitySet Name="APP_TCash" EntityType="Self.APP_TCash" />
+    <EntitySet Name="APP_User" EntityType="Self.APP_User" />
+  </EntityContainer>
+</Schema>

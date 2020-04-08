@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Gomypay_AppDBModelStoreContainer" CdmEntityContainer="Gomypay_AppEntities">
+    <EntitySetMapping Name="APP_Activity">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Activity">
+        <MappingFragment StoreEntitySet="APP_Activity">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Activity_ID" ColumnName="Activity_ID" />
+          <ScalarProperty Name="APP_Customer_ID" ColumnName="APP_Customer_ID" />
+          <ScalarProperty Name="Activity_Title" ColumnName="Activity_Title" />
+          <ScalarProperty Name="Activity_content" ColumnName="Activity_content" />
+          <ScalarProperty Name="Activity_Pic" ColumnName="Activity_Pic" />
+          <ScalarProperty Name="Date1" ColumnName="Date1" />
+          <ScalarProperty Name="Date2" ColumnName="Date2" />
+          <ScalarProperty Name="Builder" ColumnName="Builder" />
+          <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+          <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_Category_Big">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Category_Big">
+        <MappingFragment StoreEntitySet="APP_Category_Big">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BCategory_ID" ColumnName="BCategory_ID" />
+          <ScalarProperty Name="BCategory_Name" ColumnName="BCategory_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_Category_Small">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Category_Small">
+        <MappingFragment StoreEntitySet="APP_Category_Small">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SCategory_ID" ColumnName="SCategory_ID" />
+          <ScalarProperty Name="SCategory_Name" ColumnName="SCategory_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_Customer">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Customer">
+        <MappingFragment StoreEntitySet="APP_Customer">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="APP_Customer_ID" ColumnName="APP_Customer_ID" />
+          <ScalarProperty Name="Grade_No" ColumnName="Grade_No" />
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="Dealer_ID" ColumnName="Dealer_ID" />
+          <ScalarProperty Name="Customer_name" ColumnName="Customer_name" />
+          <ScalarProperty Name="Store_name" ColumnName="Store_name" />
+          <ScalarProperty Name="Pic" ColumnName="Pic" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+          <ScalarProperty Name="Personal_ID" ColumnName="Personal_ID" />
+          <ScalarProperty Name="Mail_Address" ColumnName="Mail_Address" />
+          <ScalarProperty Name="Telm" ColumnName="Telm" />
+          <ScalarProperty Name="BCategory_ID" ColumnName="BCategory_ID" />
+          <ScalarProperty Name="SCategory_ID" ColumnName="SCategory_ID" />
+          <ScalarProperty Name="Address_zip" ColumnName="Address_zip" />
+          <ScalarProperty Name="Address_City" ColumnName="Address_City" />
+          <ScalarProperty Name="Address_Zone" ColumnName="Address_Zone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Customer_Password" ColumnName="Customer_Password" />
+          <ScalarProperty Name="Customer_Checkstr" ColumnName="Customer_Checkstr" />
+          <ScalarProperty Name="Use_Bonus" ColumnName="Use_Bonus" />
+          <ScalarProperty Name="Use_Bonus_Percent" ColumnName="Use_Bonus_Percent" />
+          <ScalarProperty Name="APP_Creditpay_Bank" ColumnName="APP_Creditpay_Bank" />
+          <ScalarProperty Name="APP_Creditpay_Fee" ColumnName="APP_Creditpay_Fee" />
+          <ScalarProperty Name="APP_Creditpay_Singelpay_Max" ColumnName="APP_Creditpay_Singelpay_Max" />
+          <ScalarProperty Name="APP_Creditpay_Daypay_Max" ColumnName="APP_Creditpay_Daypay_Max" />
+          <ScalarProperty Name="APP_Creditpay_Monthpay_Max" ColumnName="APP_Creditpay_Monthpay_Max" />
+          <ScalarProperty Name="Request_Payment_Bank" ColumnName="Request_Payment_Bank" />
+          <ScalarProperty Name="Request_Payment_Branch" ColumnName="Request_Payment_Branch" />
+          <ScalarProperty Name="Request_Payment_Account_Name" ColumnName="Request_Payment_Account_Name" />
+          <ScalarProperty Name="Request_Payment_Account" ColumnName="Request_Payment_Account" />
+          <ScalarProperty Name="Statu" ColumnName="Statu" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+          <ScalarProperty Name="Istransaction" ColumnName="Istransaction" />
+          <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+          <ScalarProperty Name="Builder" ColumnName="Builder" />
+          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+          <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_Grade">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Grade">
+        <MappingFragment StoreEntitySet="APP_Grade">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Grade_No" ColumnName="Grade_No" />
+          <ScalarProperty Name="Grade_Name" ColumnName="Grade_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_Mission">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Mission">
+        <MappingFragment StoreEntitySet="APP_Mission">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Misson_No" ColumnName="Misson_No" />
+          <ScalarProperty Name="Misson_Mode_No" ColumnName="Misson_Mode_No" />
+          <ScalarProperty Name="Misson_Start_Date" ColumnName="Misson_Start_Date" />
+          <ScalarProperty Name="Misson_End_Date" ColumnName="Misson_End_Date" />
+          <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+          <ScalarProperty Name="Builder" ColumnName="Builder" />
+          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+          <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_Mission_Item">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Mission_Item">
+        <MappingFragment StoreEntitySet="APP_Mission_Item">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Misson_Item_No" ColumnName="Misson_Item_No" />
+          <ScalarProperty Name="Misson_No" ColumnName="Misson_No" />
+          <ScalarProperty Name="Misson_Mode_No" ColumnName="Misson_Mode_No" />
+          <ScalarProperty Name="System_ID" ColumnName="System_ID" />
+          <ScalarProperty Name="Creat_Day" ColumnName="Creat_Day" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_Misson_Mode">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Misson_Mode">
+        <MappingFragment StoreEntitySet="APP_Misson_Mode">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Misson_Mode_No" ColumnName="Misson_Mode_No" />
+          <ScalarProperty Name="Misson_Mode_Name" ColumnName="Misson_Mode_Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_News">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_News">
+        <MappingFragment StoreEntitySet="APP_News">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="News_No" ColumnName="News_No" />
+          <ScalarProperty Name="News_Type" ColumnName="News_Type" />
+          <ScalarProperty Name="News_Title" ColumnName="News_Title" />
+          <ScalarProperty Name="News_Content" ColumnName="News_Content" />
+          <ScalarProperty Name="Statu" ColumnName="Statu" />
+          <ScalarProperty Name="Creat_Day" ColumnName="Creat_Day" />
+          <ScalarProperty Name="Builder" ColumnName="Builder" />
+          <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_Notice">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Notice">
+        <MappingFragment StoreEntitySet="APP_Notice">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Notice_No" ColumnName="Notice_No" />
+          <ScalarProperty Name="Notice_Type" ColumnName="Notice_Type" />
+          <ScalarProperty Name="Notice_Title" ColumnName="Notice_Title" />
+          <ScalarProperty Name="Notice_content" ColumnName="Notice_content" />
+          <ScalarProperty Name="Notice_Day" ColumnName="Notice_Day" />
+          <ScalarProperty Name="Creat_Day" ColumnName="Creat_Day" />
+          <ScalarProperty Name="IsNotice" ColumnName="IsNotice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_Order">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Order">
+        <MappingFragment StoreEntitySet="APP_Order">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="APOrder_ID" ColumnName="APOrder_ID" />
+          <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+          <ScalarProperty Name="User_System_ID" ColumnName="User_System_ID" />
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="Customer_Order_ID" ColumnName="Customer_Order_ID" />
+          <ScalarProperty Name="Promotion_ID" ColumnName="Promotion_ID" />
+          <ScalarProperty Name="Use_Bonus" ColumnName="Use_Bonus" />
+          <ScalarProperty Name="Return_Bonus" ColumnName="Return_Bonus" />
+          <ScalarProperty Name="IsInstallment" ColumnName="IsInstallment" />
+          <ScalarProperty Name="Installment_Period" ColumnName="Installment_Period" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Pay_Amount" ColumnName="Pay_Amount" />
+          <ScalarProperty Name="Pay_Result" ColumnName="Pay_Result" />
+          <ScalarProperty Name="Approve_Code" ColumnName="Approve_Code" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="Goods_Return_Statu" ColumnName="Goods_Return_Statu" />
+          <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_Product">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Product">
+        <MappingFragment StoreEntitySet="APP_Product">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="APP_Customer_ID" ColumnName="APP_Customer_ID" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Product_Picture" ColumnName="Product_Picture" />
+          <ScalarProperty Name="Product_Info" ColumnName="Product_Info" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_Product_Big">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Product_Big">
+        <MappingFragment StoreEntitySet="APP_Product_Big">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BProduct_ID" ColumnName="BProduct_ID" />
+          <ScalarProperty Name="BProduct_Name" ColumnName="BProduct_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_Product_Small">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Product_Small">
+        <MappingFragment StoreEntitySet="APP_Product_Small">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SProduct_ID" ColumnName="SProduct_ID" />
+          <ScalarProperty Name="SProduct_Name" ColumnName="SProduct_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_Promotion">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Promotion">
+        <MappingFragment StoreEntitySet="APP_Promotion">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Promotion_ID" ColumnName="Promotion_ID" />
+          <ScalarProperty Name="Activity_ID" ColumnName="Activity_ID" />
+          <ScalarProperty Name="System_ID" ColumnName="System_ID" />
+          <ScalarProperty Name="UseDate" ColumnName="UseDate" />
+          <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+          <ScalarProperty Name="Creat_Day" ColumnName="Creat_Day" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_SlideShow">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_SlideShow">
+        <MappingFragment StoreEntitySet="APP_SlideShow">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Pic" ColumnName="Pic" />
+          <ScalarProperty Name="Statu" ColumnName="Statu" />
+          <ScalarProperty Name="Creat_Day" ColumnName="Creat_Day" />
+          <ScalarProperty Name="Builder" ColumnName="Builder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_SurPrise_Item">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_SurPrise_Item">
+        <MappingFragment StoreEntitySet="APP_SurPrise_Item">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SurItem_No" ColumnName="SurItem_No" />
+          <ScalarProperty Name="SurBox_No" ColumnName="SurBox_No" />
+          <ScalarProperty Name="System_ID" ColumnName="System_ID" />
+          <ScalarProperty Name="Serial_Number" ColumnName="Serial_Number" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+          <ScalarProperty Name="Creat_Day" ColumnName="Creat_Day" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_SurpriseBox">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_SurpriseBox">
+        <MappingFragment StoreEntitySet="APP_SurpriseBox">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SurBox_No" ColumnName="SurBox_No" />
+          <ScalarProperty Name="SurBox_Title" ColumnName="SurBox_Title" />
+          <ScalarProperty Name="SurBox_Num" ColumnName="SurBox_Num" />
+          <ScalarProperty Name="SurBox_Pic" ColumnName="SurBox_Pic" />
+          <ScalarProperty Name="SurBox_Start_Date" ColumnName="SurBox_Start_Date" />
+          <ScalarProperty Name="SurBox_End_Date" ColumnName="SurBox_End_Date" />
+          <ScalarProperty Name="IsRandom" ColumnName="IsRandom" />
+          <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+          <ScalarProperty Name="Builder" ColumnName="Builder" />
+          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+          <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_TCash">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_TCash">
+        <MappingFragment StoreEntitySet="APP_TCash">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Cash_No" ColumnName="Cash_No" />
+          <ScalarProperty Name="APP_Customer_ID" ColumnName="APP_Customer_ID" />
+          <ScalarProperty Name="Request_Payment_Bank" ColumnName="Request_Payment_Bank" />
+          <ScalarProperty Name="Request_Payment_Branch" ColumnName="Request_Payment_Branch" />
+          <ScalarProperty Name="Request_Payment_Account_Name" ColumnName="Request_Payment_Account_Name" />
+          <ScalarProperty Name="Request_Payment_Account" ColumnName="Request_Payment_Account" />
+          <ScalarProperty Name="Transfer_Cash" ColumnName="Transfer_Cash" />
+          <ScalarProperty Name="Use_Bonus" ColumnName="Use_Bonus" />
+          <ScalarProperty Name="ISCheck" ColumnName="ISCheck" />
+          <ScalarProperty Name="Check_Date" ColumnName="Check_Date" />
+          <ScalarProperty Name="Checker" ColumnName="Checker" />
+          <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APP_User">
+      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_User">
+        <MappingFragment StoreEntitySet="APP_User">
+          <ScalarProperty Name="OtpCheck" ColumnName="OtpCheck" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="System_ID" ColumnName="System_ID" />
+          <ScalarProperty Name="User_Account" ColumnName="User_Account" />
+          <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="RN_verified" ColumnName="RN_verified" />
+          <ScalarProperty Name="IsDuplicate" ColumnName="IsDuplicate" />
+          <ScalarProperty Name="Address_City" ColumnName="Address_City" />
+          <ScalarProperty Name="Address_Zone" ColumnName="Address_Zone" />
+          <ScalarProperty Name="Address_ZIP" ColumnName="Address_ZIP" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Bonus_Point" ColumnName="Bonus_Point" />
+          <ScalarProperty Name="Invoice_Carrier" ColumnName="Invoice_Carrier" />
+          <ScalarProperty Name="Referrer_Type" ColumnName="Referrer_Type" />
+          <ScalarProperty Name="Referrer_ID" ColumnName="Referrer_ID" />
+          <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+          <ScalarProperty Name="Builder" ColumnName="Builder" />
+          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+          <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
