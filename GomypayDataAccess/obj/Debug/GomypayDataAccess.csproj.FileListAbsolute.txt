@@ -9,3 +9,4 @@ D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\bin\Debug\zh-Hant\EntityFram
 D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\obj\Debug\GomypayDataAccess.csproj.CopyComplete
 D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\obj\Debug\GomypayDataAccess.dll
 D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\obj\Debug\GomypayDataAccess.pdb
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\obj\Debug\GomypayDataAccess.csprojAssemblyReference.cache

@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\Temp\AppServiceProvider\AppServiceProvider</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\Temp\AppServiceProvider</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/HelpPage/HelpPage.css">
@@ -79,10 +79,10 @@
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/AppServiceProvider.dll">
-      <publishTime>03/27/2020 18:38:39</publishTime>
+      <publishTime>04/08/2020 10:10:48</publishTime>
     </File>
     <File Include="bin/AppServiceProvider.pdb">
-      <publishTime>03/27/2020 18:38:39</publishTime>
+      <publishTime>04/08/2020 10:10:48</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>11/16/2019 03:00:22</publishTime>
@@ -91,13 +91,13 @@
       <publishTime>11/16/2019 03:00:40</publishTime>
     </File>
     <File Include="bin/GomypayDataAccess.dll">
-      <publishTime>03/27/2020 18:38:39</publishTime>
+      <publishTime>04/08/2020 10:09:57</publishTime>
     </File>
     <File Include="bin/GomypayDataAccess.dll.config">
-      <publishTime>03/24/2020 10:41:03</publishTime>
+      <publishTime>04/08/2020 01:54:32</publishTime>
     </File>
     <File Include="bin/GomypayDataAccess.pdb">
-      <publishTime>03/27/2020 18:38:39</publishTime>
+      <publishTime>04/08/2020 10:09:57</publishTime>
     </File>
     <File Include="bin/Json.Net.dll">
       <publishTime>11/19/2019 22:00:52</publishTime>
@@ -328,7 +328,7 @@
       <publishTime>04/22/2019 01:06:16</publishTime>
     </File>
     <File Include="bin/NLog.config">
-      <publishTime>03/18/2020 18:30:41</publishTime>
+      <publishTime>04/08/2020 10:14:17</publishTime>
     </File>
     <File Include="bin/NLog.dll">
       <publishTime>11/04/2019 21:13:18</publishTime>
@@ -664,7 +664,7 @@
       <publishTime>12/04/2017 17:36:44</publishTime>
     </File>
     <File Include="NLog.config">
-      <publishTime>03/18/2020 18:30:41</publishTime>
+      <publishTime>04/08/2020 10:14:17</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>03/06/2020 09:32:20</publishTime>
@@ -709,7 +709,7 @@
       <publishTime>03/06/2020 09:32:19</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/27/2020 18:38:39</publishTime>
+      <publishTime>04/08/2020 10:09:57</publishTime>
     </File>
   </ItemGroup>
 </Project>

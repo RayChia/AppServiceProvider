@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,27 +8,92 @@ namespace AppServiceProvider.Models
 {
     public class GoMyPayOrder
     {
+        /// <summary>
+        /// 傳送型態請填(0.信用卡 1.銀聯卡 2.超商條碼 3.WebAtm 4.虛擬帳號 5.定期扣款 6.超商代碼7.LinePay)
+        /// </summary>
         public string Send_Type { get; set; } = "";
+        /// <summary>
+        /// 付款模式請填2
+        /// </summary>
         public string Pay_Mode_No { get; set; } = "";
+        /// <summary>
+        /// 商店代號(統編/身份證/系統商店代號20碼)
+        /// </summary>
         public string CustomerId { get; set; } = "";
+        /// <summary>
+        /// 交易單號，如無則自動帶入系統預設交易單號 若使用系統預設交易畫面，交易單號不可為無
+        /// </summary>
         public string Order_No { get; set; } = "";
+        /// <summary>
+        /// 交易金額
+        /// </summary>
+        [Required(ErrorMessage = "信用卡號為必填")]
         public string Amount { get; set; } = "";
+        /// <summary>
+        /// 交易類別請填00(授權)
+        /// </summary>
         public string TransCode { get; set; } = "";
+        /// <summary>
+        /// 消費者姓名，如無將自動轉入系統預設付款頁面
+        /// </summary>
         public string Buyer_Name { get; set; } = "";
+        /// <summary>
+        /// 消費者手機(數字，不可全形) ，如無將自動轉入系統預設付款頁面
+        /// </summary>
         public string Buyer_Telm { get; set; } = "";
+        /// <summary>
+        /// 消費者Email(不可全形) ，如無將自動轉入系統預設付款頁面
+        /// </summary>
+        [EmailAddress]
         public string Buyer_Mail { get; set; } = "";
+        /// <summary>
+        /// 消費備註(交易內容) ，如無將自動轉入系統預設付款頁面
+        /// </summary>
         public string Buyer_Memo { get; set; } = "";
+        /// <summary>
+        /// 授權結果回傳網址：如無則自動轉入系統預設授權頁面
+        /// 註:如果要用JSON回傳請勿帶此參數
+        /// </summary>
+
         public string Return_url { get; set; } = "";
+        /// <summary>
+        /// 背景對帳網址，如未填寫默認不進行背景對帳
+        /// </summary>
         public string Callback_Url { get; set; } = "";
     }
     public class CreditCard: GoMyPayOrder
     {
+        /// <summary>
+        /// 信用卡號，如無將自動轉入系統預設付款頁面
+        /// </summary>
+        [Required(ErrorMessage = "信用卡號為必填")]
         public string CardNo { get; set; } = "";
+        /// <summary>
+        /// 卡片有效日期(YYMM) ，如無將自動轉入系統預設付款頁面
+        /// </summary>
+        [Required(ErrorMessage = "信用卡有效日期為必填")]
         public string ExpireDate { get; set; } = "";
+        /// <summary>
+        /// 卡片認證碼，如無將自動轉入系統預設付款頁面
+        /// </summary>
+        [Required(ErrorMessage = "信用卡認證碼為必填")]
         public string CVV { get; set; } = "";
+        /// <summary>
+        /// 交易模式一般請填(1)、分期請填(2)
+        /// </summary>
         public string TransMode { get; set; } = "";
+        /// <summary>
+        /// 期數，無期數請填0
+        /// </summary>
         public string Installment { get; set; } = "";
+        /// <summary>
+        /// 使用json回傳是否交易成功(限用非3D驗證) ，請填1
+        /// 註:如果要用預設交易頁面請勿帶此參數
+        /// </summary>
         public string e_return { get; set; } = "";
+        /// <summary>
+        /// 交易驗證密碼，如果檢查不符合無法交易(使用Json回傳才為必填欄位)
+        /// </summary>
         public string Str_Check { get; set; } = "";
     }
     public class CreditCardResult

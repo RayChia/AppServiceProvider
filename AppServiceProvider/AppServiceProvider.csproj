@@ -582,10 +582,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AppOrder\CreditCard.cs" />
+    <Compile Include="Models\AppOrder\NewOrder.cs" />
     <Compile Include="Models\AppOrder\UnionPaycard.cs" />
     <Compile Include="Models\GoMyPayOrder.cs" />
     <Compile Include="Models\JsonNetController.cs" />
+    <Compile Include="Models\Member\AllStore.cs" />
+    <Compile Include="Models\Member\Store.cs" />
     <Compile Include="Models\Member\User.cs" />
+    <Compile Include="Models\News\News.cs" />
     <Compile Include="Models\ResultData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Member\MemberService.cs" />

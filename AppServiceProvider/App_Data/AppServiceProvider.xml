@@ -523,6 +523,189 @@
             <param name="body"></param>
             <returns></returns>
         </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.AddStore(AppServiceProvider.Models.AddStore)">
+            <summary>
+            新增店家
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.getAllnews">
+            <summary>
+            取得所有最新消息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.addtransactionRecode(AppServiceProvider.Models.NewOrder)">
+            <summary>
+            新增交易紀錄
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.getAllStore">
+            <summary>
+            取得店家列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:AppServiceProvider.Models.NewOrder.Userid">
+            <summary>
+            使用者ID
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.NewOrder.Storied">
+            <summary>
+            店家ID
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.NewOrder.Goodsid">
+            <summary>
+            商品ID
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.NewOrder.Amount">
+            <summary>
+            數量
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.GoMyPayOrder.Send_Type">
+            <summary>
+            傳送型態請填(0.信用卡 1.銀聯卡 2.超商條碼 3.WebAtm 4.虛擬帳號 5.定期扣款 6.超商代碼7.LinePay)
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.GoMyPayOrder.Pay_Mode_No">
+            <summary>
+            付款模式請填2
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.GoMyPayOrder.CustomerId">
+            <summary>
+            商店代號(統編/身份證/系統商店代號20碼)
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.GoMyPayOrder.Order_No">
+            <summary>
+            交易單號，如無則自動帶入系統預設交易單號 若使用系統預設交易畫面，交易單號不可為無
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.GoMyPayOrder.Amount">
+            <summary>
+            交易金額
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.GoMyPayOrder.TransCode">
+            <summary>
+            交易類別請填00(授權)
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.GoMyPayOrder.Buyer_Name">
+            <summary>
+            消費者姓名，如無將自動轉入系統預設付款頁面
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.GoMyPayOrder.Buyer_Telm">
+            <summary>
+            消費者手機(數字，不可全形) ，如無將自動轉入系統預設付款頁面
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.GoMyPayOrder.Buyer_Mail">
+            <summary>
+            消費者Email(不可全形) ，如無將自動轉入系統預設付款頁面
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.GoMyPayOrder.Buyer_Memo">
+            <summary>
+            消費備註(交易內容) ，如無將自動轉入系統預設付款頁面
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.GoMyPayOrder.Return_url">
+            <summary>
+            授權結果回傳網址：如無則自動轉入系統預設授權頁面
+            註:如果要用JSON回傳請勿帶此參數
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.GoMyPayOrder.Callback_Url">
+            <summary>
+            背景對帳網址，如未填寫默認不進行背景對帳
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.CreditCard.CardNo">
+            <summary>
+            信用卡號，如無將自動轉入系統預設付款頁面
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.CreditCard.ExpireDate">
+            <summary>
+            卡片有效日期(YYMM) ，如無將自動轉入系統預設付款頁面
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.CreditCard.CVV">
+            <summary>
+            卡片認證碼，如無將自動轉入系統預設付款頁面
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.CreditCard.TransMode">
+            <summary>
+            交易模式一般請填(1)、分期請填(2)
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.CreditCard.Installment">
+            <summary>
+            期數，無期數請填0
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.CreditCard.e_return">
+            <summary>
+            使用json回傳是否交易成功(限用非3D驗證) ，請填1
+            註:如果要用預設交易頁面請勿帶此參數
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.CreditCard.Str_Check">
+            <summary>
+            交易驗證密碼，如果檢查不符合無法交易(使用Json回傳才為必填欄位)
+            </summary>
+        </member>
+        <member name="T:AppServiceProvider.Models.AddStore">
+            <summary>
+            新增店家
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.AddStore.Storename">
+            <summary>
+            商店名稱
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.AddStore.Address">
+            <summary>
+            商店地址
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.AddStore.Imagedata">
+            <summary>
+            圖像資料
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.AddStore.Phone">
+            <summary>
+            店家電話
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.AddStore.Fbfans">
+            <summary>
+            FB粉絲
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.AddStore.Linefans">
+            <summary>
+            Line粉絲
+            </summary>
+        </member>
+        <member name="P:AppServiceProvider.Models.AddStore.Type">
+            <summary>
+            店家類別 0食1衣2住3行4育5樂
+            </summary>
+        </member>
         <member name="T:AppServiceProvider.Models.AddUser">
             <summary>
             新增使用者
@@ -538,43 +721,54 @@
             ResendSMS
             </summary>
         </member>
-        <member name="T:AppServiceProvider.Models.ApiResult">
+        <member name="T:AppServiceProvider.Models.ApiResult`1">
             <summary>
             API呼叫時，傳回的統一物件
             </summary>
         </member>
-        <member name="P:AppServiceProvider.Models.ApiResult.Succ">
+        <member name="P:AppServiceProvider.Models.ApiResult`1.Succ">
             <summary>
             執行成功與否
             </summary>
         </member>
-        <member name="P:AppServiceProvider.Models.ApiResult.Code">
+        <member name="P:AppServiceProvider.Models.ApiResult`1.Code">
             <summary>
             結果代碼(0000=成功，其餘為錯誤代號)
             </summary>
         </member>
-        <member name="P:AppServiceProvider.Models.ApiResult.Message">
+        <member name="P:AppServiceProvider.Models.ApiResult`1.Message">
             <summary>
             錯誤訊息
             </summary>
         </member>
-        <member name="P:AppServiceProvider.Models.ApiResult.DataTime">
+        <member name="P:AppServiceProvider.Models.ApiResult`1.DataTime">
             <summary>
             資料時間
             </summary>
         </member>
-        <member name="M:AppServiceProvider.Models.ApiResult.#ctor">
+        <member name="P:AppServiceProvider.Models.ApiResult`1.Data">
+            <summary>
+            資料本體
+            </summary>
+        </member>
+        <member name="M:AppServiceProvider.Models.ApiResult`1.#ctor">
             <summary>
             建立成功結果
             </summary>
             <param name="data"></param>
         </member>
-        <member name="M:AppServiceProvider.Models.ApiResult.#ctor(System.String,System.String)">
+        <member name="M:AppServiceProvider.Models.ApiResult`1.#ctor(System.String,System.String)">
             <summary>
             建立失敗結果
             </summary>
             <param name="code"></param>
             /// <param name="message"></param>
+        </member>
+        <member name="M:AppServiceProvider.Models.ApiResult`1.#ctor(`0)">
+            <summary>
+            建立資料查詢結果
+            </summary>
+            <param name="data"></param>
         </member>
         <member name="M:AppServiceProvider.Service.MemberService.GetCacheData(System.String)">
             <summary>
