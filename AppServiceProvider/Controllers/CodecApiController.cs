@@ -142,11 +142,10 @@ namespace AppServiceProvider.Controllers
 
                 using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
                 {
-
                     //驗手機 身分證字號 重複
                     if (entities.APP_User.FirstOrDefault(x => x.User_Account == body.phone) != null)
                     {// Message 手機號碼重複
-                        if (entities.APP_User.FirstOrDefault(x => x.OtpCheck == "1") != null)
+                        if (entities.APP_User.FirstOrDefault(x => x.OtpCheck == "1" && x.User_Account == body.phone) != null)
                         {//已簡訊開通帳號
                             return Ok(new ApiResult<object>("500", "手機號碼重複"));
                         }
@@ -154,7 +153,7 @@ namespace AppServiceProvider.Controllers
                     }
                     if (entities.APP_User.FirstOrDefault(x => x.Identifier == body.Id) != null)
                     { // Message 身分證字號重複
-                        if (entities.APP_User.FirstOrDefault(x => x.OtpCheck == "1") != null)
+                        if (entities.APP_User.FirstOrDefault(x => x.OtpCheck == "1" && x.Identifier == body.Id) != null)
                         {//已簡訊開通帳號
                             return Ok(new ApiResult<object>("500", "身分證字號重複"));
                         }
@@ -166,7 +165,7 @@ namespace AppServiceProvider.Controllers
                         //取APP_System_ID
                         APP_User APPUser = new APP_User()
                         {
-                            System_ID = body.Id,
+                            System_ID = body.account,
                             Identifier = body.Id,
                             User_Name = body.name,
                             User_Password = body.Password,
@@ -185,7 +184,7 @@ namespace AppServiceProvider.Controllers
                     else
                     {
                         APP_User UpdateAppOrder = entities.APP_User.First(c => c.System_ID == body.Id);
-                        //UpdateAppOrder.System_ID = body.Id;
+                        UpdateAppOrder.System_ID = body.account;
                         UpdateAppOrder.Identifier = body.Id;
                         UpdateAppOrder.User_Name = body.name;
                         UpdateAppOrder.User_Password = body.Password;
@@ -246,7 +245,7 @@ namespace AppServiceProvider.Controllers
             {
                 if (_MemberService.CheckCacheData(body.ID, body.otp))
                 {//OTP Check OK
-                    _logger.Info("==CheckOTP OK== : ID : " + body.ID + " otp : " + body.otp);
+                    _logger.Info("==CheckOTP Request== : ID : " + body.ID + " otp : " + body.otp);
                     using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
                     {
                         APP_User UpdateAppUser = entities.APP_User.FirstOrDefault(c => c.Identifier == body.ID);
@@ -348,16 +347,34 @@ namespace AppServiceProvider.Controllers
             try
             {
                 StrBody = JsonConvert.SerializeObject(body);
+                _logger.Info("帳號登入 Request Body : " + StrBody);
                 _logger.Info("Login Request Body : " + StrBody);
 
                 using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
                 {
-                    if (entities.APP_User.FirstOrDefault(
-                        x => x.User_Account == body.account &&
-                        x.User_Password == body.password) != null)
+                    var data = entities.APP_User
+                        .Where(x => x.User_Account == body.account &&
+                        x.User_Password == body.password)
+                       .Select(x => new AddUser
+                       {
+                           account = x.System_ID,
+                           name = x.User_Name,
+                           Id = x.Identifier,
+                           sex = x.Address,
+                           //birthday = x.Birthday,
+                           phone = x.User_Account,
+                           email = x.Email
+                       }).ToList();
+                    if (data.Count > 0)
                     {
-                        return Ok(new ApiResult<object>());
+                        return Ok(new ApiResult<List<AddUser>>(data));
                     }
+                    //if (entities.APP_User.FirstOrDefault(
+                    //    x => x.User_Account == body.account &&
+                    //    x.User_Password == body.password) != null)
+                    //{
+                    //    return Ok(new ApiResult<object>());
+                    //}
                     else
                     {
                         return Ok(new ApiResult<object>("500", "帳號或密碼錯誤"));
@@ -368,6 +385,151 @@ namespace AppServiceProvider.Controllers
             {
                 _logger.Debug("==Login== : " + ex.ToString());
                 _logger.Debug("==Login== : " + ex.StackTrace.ToString());
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
+        /// 忘記密碼
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        [Route("CodecApi/ForgetPassword")]
+        [HttpPost]
+        public IHttpActionResult ForgetPassword([FromBody]ForgetPassword body)
+        {
+            // 1.檢查 帳號 密碼?
+            // 2.產生 確認碼 存cache (key:email value:otp)
+            // 3.寄信
+            //CreditCardResult Result = new CreditCardResult();
+            string StrBody = string.Empty;
+            int DBSave = 0;
+            string otp = string.Empty;
+            string SMSResult = string.Empty;
+            try
+            {
+                StrBody = JsonConvert.SerializeObject(body);
+                _logger.Info("忘記密碼 Request Body : " + StrBody);
+                // 確認帳號?
+                //using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
+                //{
+                //    if (entities.APP_User.FirstOrDefault(
+                //        x => x.User_Account == body.account &&
+                //        x.User_Password == body.password) != null)
+                //    {
+                //        return Ok(new ApiResult<object>());
+                //    }
+                //    else
+                //    {
+                //        return Ok(new ApiResult<object>("500", "帳號或密碼錯誤"));
+                //    }
+                //}
+                //寄信
+                if (_MemberService.SendEmail(body.email.Trim()))
+                { return Ok(new ApiResult<object>()); }
+                else
+                { return Ok(new ApiResult<object>("500", "發送忘記密碼Email失敗")); }
+            }
+            catch (Exception ex)
+            {
+                _logger.Debug("==忘記密碼 寄送Email== : " + ex.ToString());
+                _logger.Debug("==忘記密碼 寄送Email== : " + ex.StackTrace.ToString());
+                return Ok(new ApiResult<object>("500", "發送忘記密碼Email失敗"));
+            }
+        }
+
+        /// <summary>
+        /// 忘記密碼確認碼
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        [Route("CodecApi/ForgetPasswordCheck")]
+        [HttpPost]
+        public IHttpActionResult ForgetPasswordCheck([FromBody]ForgetPasswordCheck body)
+        {
+            // 1.確認 (key:email value:otp)
+            // 2.回傳結果
+            //CreditCardResult Result = new CreditCardResult();
+            string StrBody = string.Empty;
+            string Result = string.Empty;
+            try
+            {
+                StrBody = JsonConvert.SerializeObject(body);
+                _logger.Info("忘記密碼確認碼 Request Body : " + StrBody);
+                Result = _MemberService.CheckForgetPWOTP(body.email, body.otp);
+                if (string.IsNullOrEmpty(Result))
+                {
+                    return Ok(new ApiResult<object>());
+                }
+                else
+                {
+                    return Ok(new ApiResult<object>("500", "Result"));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _logger.Error("==忘記密碼確認碼驗證== : " + ex.ToString());
+                _logger.Error("==忘記密碼確認碼驗證== : " + ex.StackTrace.ToString());
+                return Ok(new ApiResult<object>("500", "忘記密碼確認碼驗證失敗"));
+            }
+        }
+
+        /// <summary>
+        /// 更新密碼
+        /// </summary>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        [Route("CodecApi/UpdatePassword")]
+        [HttpPost]
+        public IHttpActionResult UpdatePassword([FromBody]UpdatePassword body)
+        {
+            // 1.確認 (key:email value:otp)
+            // 2.刪除cache
+            // 3.更新密碼
+            // 4.回傳結果
+            //CreditCardResult Result = new CreditCardResult();
+            string StrBody = string.Empty;
+            int DBSave = 0;
+            string otp = string.Empty;
+            string SMSResult = string.Empty;
+            try
+            {
+                StrBody = JsonConvert.SerializeObject(body);
+                _logger.Info("更新密碼 Request Body : " + StrBody);
+
+                if (_MemberService.GoUpdatePassword(body.email, body.password))
+                {
+                    using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
+                    {
+
+                        APP_User UpdateAppOrder = entities.APP_User.First(c => c.User_Account == body.account);
+
+                        UpdateAppOrder.User_Password = body.password;
+                        UpdateAppOrder.Modifier = "AppServer";
+                        UpdateAppOrder.Modify_Date = DateTime.Now;
+                        DBSave = entities.SaveChanges();
+
+                        if (DBSave > 0)
+                        {
+                            return Ok(new ApiResult<object>());
+                        }
+                        else
+                        {
+                            return Ok(new ApiResult<object>("500", "資料庫錯誤"));
+                        }
+                    }
+                }
+                else
+                {
+                    return Ok(new ApiResult<object>("500", "查無此Email申請資料!!!"));
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Debug("==更新密碼== : " + ex.ToString());
+                _logger.Debug("==更新密碼== : " + ex.StackTrace.ToString());
                 throw ex;
             }
         }

@@ -24,7 +24,7 @@
         <EntityTypeShape EntityType="Gomypay_AppDBModel.APP_SurPrise_Item" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Gomypay_AppDBModel.APP_SurpriseBox" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Gomypay_AppDBModel.APP_TCash" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gomypay_AppDBModel.APP_User" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gomypay_AppDBModel.APP_User" Width="1.5" PointX="3.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

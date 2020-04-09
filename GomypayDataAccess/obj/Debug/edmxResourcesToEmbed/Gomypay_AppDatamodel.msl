@@ -288,30 +288,30 @@
     <EntitySetMapping Name="APP_User">
       <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_User">
         <MappingFragment StoreEntitySet="APP_User">
+          <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+          <ScalarProperty Name="Builder" ColumnName="Builder" />
+          <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+          <ScalarProperty Name="Referrer_ID" ColumnName="Referrer_ID" />
+          <ScalarProperty Name="Referrer_Type" ColumnName="Referrer_Type" />
+          <ScalarProperty Name="Invoice_Carrier" ColumnName="Invoice_Carrier" />
+          <ScalarProperty Name="Bonus_Point" ColumnName="Bonus_Point" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Address_ZIP" ColumnName="Address_ZIP" />
+          <ScalarProperty Name="Address_Zone" ColumnName="Address_Zone" />
+          <ScalarProperty Name="Address_City" ColumnName="Address_City" />
           <ScalarProperty Name="OtpCheck" ColumnName="OtpCheck" />
           <ScalarProperty Name="Sex" ColumnName="Sex" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="System_ID" ColumnName="System_ID" />
-          <ScalarProperty Name="User_Account" ColumnName="User_Account" />
-          <ScalarProperty Name="User_Password" ColumnName="User_Password" />
-          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
-          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="RN_verified" ColumnName="RN_verified" />
           <ScalarProperty Name="IsDuplicate" ColumnName="IsDuplicate" />
-          <ScalarProperty Name="Address_City" ColumnName="Address_City" />
-          <ScalarProperty Name="Address_Zone" ColumnName="Address_Zone" />
-          <ScalarProperty Name="Address_ZIP" ColumnName="Address_ZIP" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Bonus_Point" ColumnName="Bonus_Point" />
-          <ScalarProperty Name="Invoice_Carrier" ColumnName="Invoice_Carrier" />
-          <ScalarProperty Name="Referrer_Type" ColumnName="Referrer_Type" />
-          <ScalarProperty Name="Referrer_ID" ColumnName="Referrer_ID" />
-          <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
-          <ScalarProperty Name="Builder" ColumnName="Builder" />
-          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
-          <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+          <ScalarProperty Name="RN_verified" ColumnName="RN_verified" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+          <ScalarProperty Name="User_Account" ColumnName="User_Account" />
+          <ScalarProperty Name="System_ID" ColumnName="System_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -295,10 +295,10 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="System_ID" Type="nvarchar" MaxLength="32" Nullable="false" />
-          <Property Name="User_Account" Type="nvarchar" MaxLength="10" />
+          <Property Name="User_Account" Type="nvarchar" MaxLength="20" />
           <Property Name="User_Password" Type="nvarchar" MaxLength="32" />
           <Property Name="User_Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Identifier" Type="nvarchar" MaxLength="10" />
+          <Property Name="Identifier" Type="nvarchar" MaxLength="20" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="Birthday" Type="date" />
           <Property Name="RN_verified" Type="nvarchar" MaxLength="1" />
@@ -627,36 +627,6 @@
           <Property Name="Checker" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Build_Date" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="APP_User">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="System_ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="System_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="User_Account" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="User_Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Identifier" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Birthday" Type="DateTime" Precision="0" />
-          <Property Name="RN_verified" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="IsDuplicate" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="Address_City" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="Address_Zone" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="Address_ZIP" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Bonus_Point" Type="Int64" />
-          <Property Name="Invoice_Carrier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Referrer_Type" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
-          <Property Name="Referrer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="Build_Date" Type="DateTime" Precision="3" />
-          <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="Modify_Date" Type="DateTime" Precision="3" />
-          <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="OtpCheck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityContainer Name="Gomypay_AppEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="APP_Activity" EntityType="Self.APP_Activity" />
           <EntitySet Name="APP_Category_Big" EntityType="Self.APP_Category_Big" />
@@ -677,8 +647,38 @@
           <EntitySet Name="APP_SurPrise_Item" EntityType="Self.APP_SurPrise_Item" />
           <EntitySet Name="APP_SurpriseBox" EntityType="Self.APP_SurpriseBox" />
           <EntitySet Name="APP_TCash" EntityType="Self.APP_TCash" />
-          <EntitySet Name="APP_User" EntityType="Self.APP_User" />
+          <EntitySet Name="APP_User" EntityType="Gomypay_AppDBModel.APP_User" />
         </EntityContainer>
+        <EntityType Name="APP_User">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="System_ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="System_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="User_Account" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="User_Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Identifier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="RN_verified" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="IsDuplicate" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="OtpCheck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Address_City" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Address_Zone" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Address_ZIP" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Bonus_Point" Type="Int64" />
+          <Property Name="Invoice_Carrier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Referrer_Type" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Referrer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Build_Date" Type="DateTime" Precision="3" />
+          <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Modify_Date" Type="DateTime" Precision="3" />
+          <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -972,30 +972,30 @@
           <EntitySetMapping Name="APP_User">
             <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_User">
               <MappingFragment StoreEntitySet="APP_User">
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+                <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+                <ScalarProperty Name="Builder" ColumnName="Builder" />
+                <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+                <ScalarProperty Name="Referrer_ID" ColumnName="Referrer_ID" />
+                <ScalarProperty Name="Referrer_Type" ColumnName="Referrer_Type" />
+                <ScalarProperty Name="Invoice_Carrier" ColumnName="Invoice_Carrier" />
+                <ScalarProperty Name="Bonus_Point" ColumnName="Bonus_Point" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address_ZIP" ColumnName="Address_ZIP" />
+                <ScalarProperty Name="Address_Zone" ColumnName="Address_Zone" />
+                <ScalarProperty Name="Address_City" ColumnName="Address_City" />
                 <ScalarProperty Name="OtpCheck" ColumnName="OtpCheck" />
                 <ScalarProperty Name="Sex" ColumnName="Sex" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="System_ID" ColumnName="System_ID" />
-                <ScalarProperty Name="User_Account" ColumnName="User_Account" />
-                <ScalarProperty Name="User_Password" ColumnName="User_Password" />
-                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
-                <ScalarProperty Name="Identifier" ColumnName="Identifier" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="RN_verified" ColumnName="RN_verified" />
                 <ScalarProperty Name="IsDuplicate" ColumnName="IsDuplicate" />
-                <ScalarProperty Name="Address_City" ColumnName="Address_City" />
-                <ScalarProperty Name="Address_Zone" ColumnName="Address_Zone" />
-                <ScalarProperty Name="Address_ZIP" ColumnName="Address_ZIP" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Bonus_Point" ColumnName="Bonus_Point" />
-                <ScalarProperty Name="Invoice_Carrier" ColumnName="Invoice_Carrier" />
-                <ScalarProperty Name="Referrer_Type" ColumnName="Referrer_Type" />
-                <ScalarProperty Name="Referrer_ID" ColumnName="Referrer_ID" />
-                <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
-                <ScalarProperty Name="Builder" ColumnName="Builder" />
-                <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
-                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+                <ScalarProperty Name="RN_verified" ColumnName="RN_verified" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+                <ScalarProperty Name="User_Account" ColumnName="User_Account" />
+                <ScalarProperty Name="System_ID" ColumnName="System_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

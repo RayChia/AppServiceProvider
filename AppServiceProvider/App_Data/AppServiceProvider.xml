@@ -523,6 +523,27 @@
             <param name="body"></param>
             <returns></returns>
         </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.ForgetPassword(AppServiceProvider.Models.ForgetPassword)">
+            <summary>
+            忘記密碼
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.ForgetPasswordCheck(AppServiceProvider.Models.ForgetPasswordCheck)">
+            <summary>
+            忘記密碼確認碼
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.UpdatePassword(AppServiceProvider.Models.UpdatePassword)">
+            <summary>
+            更新密碼
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
         <member name="M:AppServiceProvider.Controllers.CodecApiController.AddStore(AppServiceProvider.Models.AddStore)">
             <summary>
             新增店家
@@ -791,6 +812,29 @@
             </summary>
             <param name="num"></param>
             <returns>產生num長度 隨機亂數</returns>
+        </member>
+        <member name="M:AppServiceProvider.Service.MemberService.SendEmail(System.String)">
+            <summary>
+            寄送忘記密碼Email
+            </summary>
+            <param name="mail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AppServiceProvider.Service.MemberService.CheckForgetPWOTP(System.String,System.String)">
+            <summary>
+            忘記密碼確認碼驗證
+            </summary>
+            <param name="mail"></param>
+            <param name="otp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AppServiceProvider.Service.MemberService.GoUpdatePassword(System.String,System.String)">
+            <summary>
+            更新密碼
+            </summary>
+            <param name="mail"></param>
+            <param name="otp"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

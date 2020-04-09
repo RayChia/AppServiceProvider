@@ -41,4 +41,21 @@
         public string password { get; set; } = "";
 
     }
+
+    public class ForgetPassword
+    {
+        public string account { get; set; } = "";
+        public string email { get; set; } = "";
+    }
+    public class ForgetPasswordCheck
+    {
+        public string email { get; set; } = "";
+        public string otp { get; set; } = "";
+    }
+    public class UpdatePassword
+    {
+        public string account { get; set; } = "";
+        public string email { get; set; } = "";
+        public string password { get; set; } = "";
+    }
 }

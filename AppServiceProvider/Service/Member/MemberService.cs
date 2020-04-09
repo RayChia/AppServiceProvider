@@ -10,6 +10,8 @@ using System.Web;
 using NLog;
 using System.Runtime.Caching;
 using AppServiceProvider.Models;
+using System.Net.Mail;
+using GomypayDataAccess;
 
 namespace AppServiceProvider.Service
 {
@@ -18,6 +20,12 @@ namespace AppServiceProvider.Service
         private static Logger _logger = NLog.LogManager.GetCurrentClassLogger();
         private static MemoryCache _cacheOTP = MemoryCache.Default;// ID , OTP
         private static MemoryCache _cacheQS = MemoryCache.Default;// Phone , Query String
+        private static MemoryCache _cacheFogetPW = MemoryCache.Default;// email , OTP
+
+        private string MailAddress = ConfigurationManager.AppSettings["SendMailAccount"];
+        private string MailPassword = ConfigurationManager.AppSettings["SendMailPwd"];
+        private string SMTPServer = ConfigurationManager.AppSettings["smtpServer"];
+        private string SMTPPort = ConfigurationManager.AppSettings["smtpPort"];
         public string SendSMS(string QueryString)
         {
             try
@@ -120,12 +128,14 @@ namespace AppServiceProvider.Service
             string SMSBody = string.Empty;
             try
             {
-                CacheItemPolicy cacheItemPolicy = new CacheItemPolicy() { SlidingExpiration = new TimeSpan(0, 20, 0) };
+                
                 SMSBody =
                     $"yhy={yhy}&dc2a={dc2a}&movetel={body.phone}&name={body.name}" +
                     $"&bf={DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss")}" +
                     $"&sb=您的4位驗證碼是[{GetCacheData(body.Id)}]  GoMyPay手機APP，使用者註冊系統。";
-                _cacheQS.Set(body.phone, body, cacheItemPolicy);
+                
+                CacheItemPolicy cacheItemPolicy = new CacheItemPolicy() { SlidingExpiration = new TimeSpan(0, 20, 0) };
+                _cacheQS.Set(body.phone, body, cacheItemPolicy);//body 存起來 重發簡訊使用
                 // lock 以 key 產生的專屬 lock object，如果 object 過期會自動 new 出新的
                 // 如果直接 lock cache[key] 會造成無法寫入 cache 資料
                 //GetNewCache();
@@ -189,5 +199,117 @@ namespace AppServiceProvider.Service
             return 0;
         }
 
+        /// <summary>
+        /// 寄送忘記密碼Email
+        /// </summary>
+        /// <param name="mail"></param>
+        /// <returns></returns>
+        public bool SendEmail(string mail)
+        {
+            //string[] MailTo = null;
+            string otp = string.Empty;
+            try
+            {
+                otp = GetNewCache(6);
+                CacheItemPolicy cacheItemPolicy = new CacheItemPolicy() { SlidingExpiration = new TimeSpan(0, 30, 0) };
+                //更新 cache
+                _cacheFogetPW.Set(mail, otp, cacheItemPolicy);
+
+                System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+                msg.To.Add(mail);
+                //msg.From = new System.Net.Mail.MailAddress(MailAddress, "GoMyPay", System.Text.Encoding.UTF8);
+                msg.Subject = "GoMyPay 手機APP 忘記密碼認證碼";
+                msg.SubjectEncoding = System.Text.Encoding.UTF8;
+                string Body = "GoMyPay 手機APP 忘記密碼認證碼\n" + otp + "\n請在30分鐘內輸入認證碼";
+                msg.Body = Body;
+                msg.BodyEncoding = System.Text.Encoding.UTF8;
+                //msg.IsBodyHtml = true;
+                using (SmtpClient client = new SmtpClient(SMTPServer, int.Parse(SMTPPort)))
+                {
+                    client.Credentials = new NetworkCredential(mail, MailPassword); //這裡要填正確的帳號跟密碼
+                    //client.Host = MailServer; //設定smtp Server
+                    //client.Port = int.Parse(MailPort); //設定Port
+                    client.EnableSsl = false; //gmail預設開啟驗證
+                    client.Send(msg); //寄出信件
+                    client.Dispose();
+                    msg.Dispose();
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                _logger.Error("==Email 發送== : " + e.Message.ToString());
+                _logger.Error("==Email 發送== : " + e.StackTrace.ToString());
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 忘記密碼確認碼驗證
+        /// </summary>
+        /// <param name="mail"></param>
+        /// <param name="otp"></param>
+        /// <returns></returns>
+        public string CheckForgetPWOTP(string mail,string otp)
+        {
+            //string[] MailTo = null;
+            try
+            {
+                string cacheData = _cacheOTP[mail] as string;
+                if (!string.IsNullOrEmpty(cacheData))
+                {
+                    if (cacheData == otp)
+                    {
+                        //_cacheOTP.Remove(key); 改密碼後在刪除
+                        return "";
+                    }
+                    else
+                    {
+                        return "驗證碼錯誤!!";
+                    }
+                }
+                else
+                {
+                    return "查無此EMAIL!!";
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.Error("==Email 發送== : " + e.Message.ToString());
+                _logger.Error("==Email 發送== : " + e.StackTrace.ToString());
+                return "忘記密碼 確認碼驗證失敗!!";
+            }
+        }
+
+        /// <summary>
+        /// 更新密碼
+        /// </summary>
+        /// <param name="mail"></param>
+        /// <param name="otp"></param>
+        /// <returns></returns>
+        public bool GoUpdatePassword(string mail, string otp)
+        {
+            //string[] MailTo = null;
+            try
+            {
+                string cacheData = _cacheOTP[mail] as string;
+                if (string.IsNullOrEmpty(cacheData))
+                {
+                    return false;
+                }
+                else
+                {
+                    _cacheOTP.Remove(mail);
+                    return true;
+                }
+                //"查無此EMAIL忘記密碼申請!!"
+            }
+            catch (Exception e)
+            {
+                _logger.Error("==更新密碼== : " + e.Message.ToString());
+                _logger.Error("==更新密碼== : " + e.StackTrace.ToString());
+                return false;
+            }
+        }
     }
 }

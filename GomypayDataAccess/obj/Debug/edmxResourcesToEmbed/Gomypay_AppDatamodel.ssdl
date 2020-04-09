@@ -290,10 +290,10 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="System_ID" Type="nvarchar" MaxLength="32" Nullable="false" />
-    <Property Name="User_Account" Type="nvarchar" MaxLength="10" />
+    <Property Name="User_Account" Type="nvarchar" MaxLength="20" />
     <Property Name="User_Password" Type="nvarchar" MaxLength="32" />
     <Property Name="User_Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="Identifier" Type="nvarchar" MaxLength="10" />
+    <Property Name="Identifier" Type="nvarchar" MaxLength="20" />
     <Property Name="Email" Type="nvarchar" MaxLength="100" />
     <Property Name="Birthday" Type="date" />
     <Property Name="RN_verified" Type="nvarchar" MaxLength="1" />

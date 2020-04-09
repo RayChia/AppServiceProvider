@@ -24,6 +24,8 @@ namespace GomypayDataAccess
         public Nullable<System.DateTime> Birthday { get; set; }
         public string RN_verified { get; set; }
         public string IsDuplicate { get; set; }
+        public string Sex { get; set; }
+        public string OtpCheck { get; set; }
         public string Address_City { get; set; }
         public string Address_Zone { get; set; }
         public string Address_ZIP { get; set; }
@@ -36,7 +38,5 @@ namespace GomypayDataAccess
         public string Builder { get; set; }
         public Nullable<System.DateTime> Modify_Date { get; set; }
         public string Modifier { get; set; }
-        public string Sex { get; set; }
-        public string OtpCheck { get; set; }
     }
 }
