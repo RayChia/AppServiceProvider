@@ -13,15 +13,15 @@ namespace AppServiceProvider.Models
         /// <summary>
         /// 執行成功與否
         /// </summary>
-        public bool Succ { get; set; }
+        public bool Succ { get; set; } = false;
         /// <summary>
         /// 結果代碼(0000=成功，其餘為錯誤代號)
         /// </summary>
-        public string Code { get; set; }
+        public string Code { get; set; } = "";
         /// <summary>
         /// 錯誤訊息
         /// </summary>
-        public string Message { get; set; }
+        public string Message { get; set; } = "";
         /// <summary>
         /// 資料時間
         /// </summary>
@@ -31,9 +31,7 @@ namespace AppServiceProvider.Models
         /// </summary>
         public T Data { get; set; }
 
-
-        //public ApiResult() { }
-
+        
         /// <summary>
         /// 建立成功結果
         /// </summary>
@@ -43,7 +41,6 @@ namespace AppServiceProvider.Models
             Code = "0000";
             Succ = true;
             DataTime = DateTime.Now;
-            //Data = data;
         }
         /// <summary>
         /// 建立失敗結果

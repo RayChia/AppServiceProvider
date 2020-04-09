@@ -1,0 +1,9 @@
+2020/04/08 10:49:32.810| Debug | CodecApi/GG123 : TEST 
+2020/04/08 10:49:42.220| Debug | CodecApi/GG123 : TEST 
+2020/04/08 13:00:40.798| Debug | CodecApi/GG123 : TEST 
+2020/04/08 13:00:51.675| Debug | AddUser Request Body : {"account":" account0408","Password":" 123456","name":" TEST0408","Id":" ID20200408","sex":" 0","birthday":"","email":"","phone":" 0987200837","recommand":" TEST20200408"}
+2020/04/08 13:00:52.128| Error | ===AddUser Error===: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+2020/04/08 13:00:52.254| Error | ===AddUser Error===:    於 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   於 System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   於 System.Data.Entity.DbContext.SaveChanges()
+   於 AppServiceProvider.Controllers.CodecApiController.Register(AddUser body) 於 D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\Controllers\CodecApiController.cs: 行 183

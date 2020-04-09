@@ -12,6 +12,10 @@ using System.Runtime.Caching;
 using AppServiceProvider.Models;
 using System.Net.Mail;
 using GomypayDataAccess;
+using MailKit.Security;
+using MimeKit;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AppServiceProvider.Service
 {
@@ -22,8 +26,9 @@ namespace AppServiceProvider.Service
         private static MemoryCache _cacheQS = MemoryCache.Default;// Phone , Query String
         private static MemoryCache _cacheFogetPW = MemoryCache.Default;// email , OTP
 
-        private string MailAddress = ConfigurationManager.AppSettings["SendMailAccount"];
-        private string MailPassword = ConfigurationManager.AppSettings["SendMailPwd"];
+        private string MailFrom = ConfigurationManager.AppSettings["MailFrom"];
+        private string MailAddress = ConfigurationManager.AppSettings["MailAccount"];
+        private string MailPwd = ConfigurationManager.AppSettings["MailPwd"];
         private string SMTPServer = ConfigurationManager.AppSettings["smtpServer"];
         private string SMTPPort = ConfigurationManager.AppSettings["smtpPort"];
         public string SendSMS(string QueryString)
@@ -206,6 +211,7 @@ namespace AppServiceProvider.Service
         /// <returns></returns>
         public bool SendEmail(string mail)
         {
+            /*
             //string[] MailTo = null;
             string otp = string.Empty;
             try
@@ -215,21 +221,25 @@ namespace AppServiceProvider.Service
                 //更新 cache
                 _cacheFogetPW.Set(mail, otp, cacheItemPolicy);
 
-                System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+                MailMessage msg = new MailMessage();
                 msg.To.Add(mail);
-                //msg.From = new System.Net.Mail.MailAddress(MailAddress, "GoMyPay", System.Text.Encoding.UTF8);
+                msg.From = new MailAddress(MailAddress, "GoMyPa", System.Text.Encoding.UTF8);
                 msg.Subject = "GoMyPay 手機APP 忘記密碼認證碼";
                 msg.SubjectEncoding = System.Text.Encoding.UTF8;
                 string Body = "GoMyPay 手機APP 忘記密碼認證碼\n" + otp + "\n請在30分鐘內輸入認證碼";
                 msg.Body = Body;
+                msg.IsBodyHtml = false;
+                msg.Priority = MailPriority.High;
                 msg.BodyEncoding = System.Text.Encoding.UTF8;
                 //msg.IsBodyHtml = true;
-                using (SmtpClient client = new SmtpClient(SMTPServer, int.Parse(SMTPPort)))
+                //using (SmtpClient client = new SmtpClient(SMTPServer, int.Parse(SMTPPort)))
+                using (SmtpClient client = new SmtpClient("smtp.gmail.com", 465))
                 {
-                    client.Credentials = new NetworkCredential(mail, MailPassword); //這裡要填正確的帳號跟密碼
+                    client.Credentials = new NetworkCredential("tm80013554@gmail.com", "0930517121");
+                    //client.Credentials = new NetworkCredential(MailAddress, MailPassword); //這裡要填正確的帳號跟密碼
                     //client.Host = MailServer; //設定smtp Server
                     //client.Port = int.Parse(MailPort); //設定Port
-                    client.EnableSsl = false; //gmail預設開啟驗證
+                    client.EnableSsl = true; //gmail預設開啟驗證
                     client.Send(msg); //寄出信件
                     client.Dispose();
                     msg.Dispose();
@@ -241,7 +251,65 @@ namespace AppServiceProvider.Service
                 _logger.Error("==Email 發送== : " + e.Message.ToString());
                 _logger.Error("==Email 發送== : " + e.StackTrace.ToString());
                 return false;
+            }*/
+
+
+            string otp = string.Empty;
+            try
+            {
+                otp = GetNewCache(6);
+                CacheItemPolicy cacheItemPolicy = new CacheItemPolicy() { SlidingExpiration = new TimeSpan(0, 30, 0) };
+                //更新 cache
+                _cacheFogetPW.Set(mail, otp, cacheItemPolicy);
+
+                MailMessage msg = new MailMessage();
+                msg.To.Add(mail);
+                msg.From = new MailAddress(MailFrom, "GoMyPa", System.Text.Encoding.UTF8);
+                msg.Subject = "GoMyPay 手機APP 忘記密碼認證碼";
+                msg.SubjectEncoding = System.Text.Encoding.UTF8;
+                string Body = "GoMyPay 手機APP 忘記密碼認證碼\n" + otp + "\n請在30分鐘內輸入認證碼";
+                msg.Body = Body;
+                msg.IsBodyHtml = false;
+                msg.Priority = MailPriority.High;
+                msg.BodyEncoding = System.Text.Encoding.UTF8;
+                //msg.IsBodyHtml = true;
+                //using (SmtpClient client = new SmtpClient(SMTPServer, int.Parse(SMTPPort)))
+                var mime = (MimeMessage)msg;
+                using (var client = new MailKit.Net.Smtp.SmtpClient())
+                {
+                    ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(ValidateServerCertificate);
+                    //client.Connect(SMTP_Server, SMTP_Port, SecureSocketOptions.SslOnConnect);
+                    client.Connect(SMTPServer, int.Parse(SMTPPort), SecureSocketOptions.StartTls);
+                    client.Authenticate(MailAddress, MailPwd);
+                    client.Timeout = 10000;
+                    client.Send(mime);
+                    client.Disconnect(true);
+                    client.Dispose();
+                }
+                /*
+                using (SmtpClient client = new SmtpClient(SMTPServer, int.Parse(SMTPPort)))
+                {
+                    client.Credentials = new NetworkCredential(MailAddress, MailPwd);
+                    //client.Credentials = new NetworkCredential(MailAddress, MailPassword); //這裡要填正確的帳號跟密碼
+                    //client.Host = MailServer; //設定smtp Server
+                    //client.Port = int.Parse(MailPort); //設定Port
+                    client.EnableSsl = true; //gmail預設開啟驗證
+                    client.Send(msg); //寄出信件
+                    client.Dispose();
+                    msg.Dispose();
+                }*/
+                return true;
             }
+            catch (Exception e)
+            {
+                _logger.Error("==Email 發送== : " + e.Message.ToString());
+                _logger.Error("==Email 發送== : " + e.StackTrace.ToString());
+                return false;
+            }
+        }
+        public static bool ValidateServerCertificate(Object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            return true;
         }
 
         /// <summary>

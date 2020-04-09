@@ -275,3 +275,9 @@ D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\GomypayDataAccess.pdb
 D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\GomypayDataAccess.dll.config
 D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\EntityFramework.xml
 D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\EntityFramework.SqlServer.xml
+D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\BouncyCastle.Crypto.dll
+D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\MailKit.dll
+D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\MimeKit.dll
+D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\BouncyCastle.Crypto.xml
+D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\MailKit.xml
+D:\Dropbox\GMP\AppServiceProvider\AppServiceProvider\bin\MimeKit.xml

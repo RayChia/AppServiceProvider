@@ -24,7 +24,7 @@ namespace AppServiceProvider.Controllers
         private static OrderService _OrderService = new OrderService();
         private static MemberService _MemberService = new MemberService();
         //private class CreditCard = AppOrder.CreditCard;
-
+        #region TEST
         [Route("CodecApi/GG123")]
         public IEnumerable<APP_Order> Get()
         {
@@ -43,6 +43,8 @@ namespace AppServiceProvider.Controllers
             }
 
         }
+        #endregion
+
         #region App交易
 
         /// <summary>
@@ -172,6 +174,7 @@ namespace AppServiceProvider.Controllers
                             User_Account = body.phone,//帳號，默認為手機號碼
                             Sex = body.sex,
                             OtpCheck = "0",
+                            Email=body.email,
 
                             Builder = "AppServer",
                             Build_Date = DateTime.Now,
@@ -191,12 +194,11 @@ namespace AppServiceProvider.Controllers
                         UpdateAppOrder.User_Account = body.phone;//帳號，默認為手機號碼
                         UpdateAppOrder.Sex = body.sex;
                         UpdateAppOrder.OtpCheck = "0";
-
+                        UpdateAppOrder.Email = body.email;
                         UpdateAppOrder.Modifier = "AppServer";
                         UpdateAppOrder.Modify_Date = DateTime.Now;
 
                         DBSave = entities.SaveChanges();
-
                     }
                     if (DBSave > 0)
                     {
@@ -357,13 +359,13 @@ namespace AppServiceProvider.Controllers
                         x.User_Password == body.password)
                        .Select(x => new AddUser
                        {
-                           account = x.System_ID,
-                           name = x.User_Name,
-                           Id = x.Identifier,
-                           sex = x.Address,
+                           account = string.IsNullOrEmpty(x.System_ID) ? "" : x.System_ID,
+                           name = string.IsNullOrEmpty(x.User_Name) ? "" : x.User_Name,
+                           Id = string.IsNullOrEmpty(x.Identifier) ? "" : x.Identifier,
+                           sex = string.IsNullOrEmpty(x.Sex) ? "" : x.Sex,
                            //birthday = x.Birthday,
                            phone = x.User_Account,
-                           email = x.Email
+                           email = string.IsNullOrEmpty(x.Email) ? "" : x.Email,
                        }).ToList();
                     if (data.Count > 0)
                     {
@@ -535,6 +537,8 @@ namespace AppServiceProvider.Controllers
         }
 
         #endregion
+
+        #region 店家
         /// <summary>
         /// 新增店家
         /// </summary>
@@ -782,5 +786,7 @@ namespace AppServiceProvider.Controllers
                 throw ex;
             }
         }
+
+        #endregion
     }
 }
