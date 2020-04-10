@@ -63,13 +63,28 @@ namespace AppServiceProvider.Controllers
             {
                 StrBody = JsonConvert.SerializeObject(body);
                 _logger.Debug("App Request Body : " + StrBody);
+
                 if (!ModelState.IsValid)
                 {
                     //Result.ret_msg= ModelState.Values;
-                    return Ok(Result);
+                    //return Ok(Result);
 
                 }
 
+                //查詢店家資訊
+                using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
+                {
+
+                    var pass = entities.APP_Customer.FirstOrDefault(x => x.Customer_ID == body.CustomerId);
+                    if (pass != null)
+                    {
+                        body.Str_Check = pass.Customer_Password;
+                    }
+                    else
+                    {
+                        return Ok(new ApiResult<object>("500", "查無商家資訊"));
+                    }
+                }
 
                 //logger.Debug("APP Request Body : " + body);
 

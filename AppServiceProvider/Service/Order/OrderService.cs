@@ -31,8 +31,25 @@ namespace AppServiceProvider.Service
                 string connString = ConfigurationManager.AppSettings["DBConnectionStr"];
                 string APOrder_ID = string.Empty;//交易唯一識別碼 APP訂單編號(AP+年月日+6碼流水號)
                 int DBSave = 0;
-            
-                
+
+                //取商家交易密碼
+                //using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
+                //{
+
+                //    var pass = entities.APP_Customer.FirstOrDefault(x => x.Customer_ID == BodyObj.CustomerId);
+                //    if (pass != null)
+                //    {
+                //        BodyObj.Str_Check = pass.Customer_Password;
+                //    }
+                //    else
+                //    {
+                //        return JsonToQueryString(new ApiResult<object>("500","查無商家資訊"));
+                //    }
+                //}
+
+
+
+                //取交易流水編號
                 using (SqlConnection connection = new SqlConnection(connString))
                 {
                     connection.Open();
