@@ -570,6 +570,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.getSlider">
+            <summary>
+            取得輪播資訊 幻燈片
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:AppServiceProvider.Models.NewOrder.Userid">
             <summary>
             使用者ID

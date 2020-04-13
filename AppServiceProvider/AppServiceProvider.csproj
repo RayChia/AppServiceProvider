@@ -599,6 +599,7 @@
     <Compile Include="Models\Member\Store.cs" />
     <Compile Include="Models\Member\User.cs" />
     <Compile Include="Models\News\News.cs" />
+    <Compile Include="Models\News\SlideShow.cs" />
     <Compile Include="Models\ResultData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Member\MemberService.cs" />

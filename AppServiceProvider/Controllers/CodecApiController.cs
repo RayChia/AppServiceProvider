@@ -62,7 +62,7 @@ namespace AppServiceProvider.Controllers
             try
             {
                 StrBody = JsonConvert.SerializeObject(body);
-                _logger.Debug("App Request Body : " + StrBody);
+                _logger.Debug("信用卡交易無分期 Body : " + StrBody);
 
                 if (!ModelState.IsValid)
                 {
@@ -801,6 +801,42 @@ namespace AppServiceProvider.Controllers
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// 取得輪播資訊 幻燈片
+        /// </summary>
+        /// <returns></returns>
+        [Route("CodecApi/getSlider")]
+        [HttpPost]
+        public IHttpActionResult getSlider()
+        {
+            string StrBody = string.Empty;
+            //int DBSave = 0;
+            string otp = string.Empty;
+            string SMSResult = string.Empty;
+            try
+            {
+                _logger.Debug("==取得輪播資訊==");
+                using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
+                {
+                    var data = entities.APP_SlideShow
+                        .Select(x => new SlideShow
+                        {
+                            id = x.ID.ToString(),
+                            pic = x.Pic,
+                        }).ToList();
+                    return Ok(new ApiResult<List<SlideShow>>(data));
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                _logger.Error("===輪播資訊 Error===: " + ex.Message);
+                _logger.Error("===輪播資訊 Error===: " + ex.StackTrace);
+                throw ex;
+            }
+        }
+
 
         #endregion
     }

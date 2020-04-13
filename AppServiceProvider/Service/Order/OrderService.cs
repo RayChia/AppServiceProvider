@@ -111,11 +111,11 @@ namespace AppServiceProvider.Service
                 }
                 CreditCardResult RespObj = new CreditCardResult();
                 RespObj = JsonConvert.DeserializeObject<CreditCardResult>(RespBody);
-                logger.Debug("RespObj result : " + RespObj.result);
-                logger.Debug("RespObj e_date : " + RespObj.e_date);
-                logger.Debug("RespObj OrderID : " + RespObj.OrderID);
-                logger.Debug("RespObj str_check : " + RespObj.result);
-                logger.Debug("RespObj bankname : " + RespObj.bankname);
+                //logger.Debug("RespObj result : " + RespObj.result);
+                //logger.Debug("RespObj e_date : " + RespObj.e_date);
+                //logger.Debug("RespObj OrderID : " + RespObj.OrderID);
+                //logger.Debug("RespObj str_check : " + RespObj.result);
+                //logger.Debug("RespObj bankname : " + RespObj.bankname);
 
                 if (RespObj.result == "1")//授權成功
                 {
