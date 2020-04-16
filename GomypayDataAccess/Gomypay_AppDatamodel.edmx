@@ -295,16 +295,17 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="System_ID" Type="nvarchar" MaxLength="32" Nullable="false" />
-          <Property Name="User_Account" Type="nvarchar" MaxLength="20" />
+          <Property Name="User_Account" Type="nvarchar" MaxLength="10" />
           <Property Name="User_Password" Type="nvarchar" MaxLength="32" />
           <Property Name="User_Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Identifier" Type="nvarchar" MaxLength="20" />
+          <Property Name="Identifier" Type="nvarchar" MaxLength="10" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="Birthday" Type="date" />
           <Property Name="RN_verified" Type="nvarchar" MaxLength="1" />
           <Property Name="IsDuplicate" Type="nvarchar" MaxLength="1" />
           <Property Name="Sex" Type="nvarchar" MaxLength="1" />
           <Property Name="OtpCheck" Type="nvarchar" MaxLength="1" />
+          <Property Name="Friends" Type="text" />
           <Property Name="Address_City" Type="nvarchar" MaxLength="5" />
           <Property Name="Address_Zone" Type="nvarchar" MaxLength="5" />
           <Property Name="Address_ZIP" Type="nvarchar" MaxLength="5" />
@@ -656,10 +657,10 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="System_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="User_Account" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="User_Account" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="User_Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Identifier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Identifier" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Birthday" Type="DateTime" Precision="0" />
           <Property Name="RN_verified" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
@@ -678,6 +679,7 @@
           <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="Modify_Date" Type="DateTime" Precision="3" />
           <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Friends" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -972,6 +974,7 @@
           <EntitySetMapping Name="APP_User">
             <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_User">
               <MappingFragment StoreEntitySet="APP_User">
+                <ScalarProperty Name="Friends" ColumnName="Friends" />
                 <ScalarProperty Name="Modifier" ColumnName="Modifier" />
                 <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
                 <ScalarProperty Name="Builder" ColumnName="Builder" />

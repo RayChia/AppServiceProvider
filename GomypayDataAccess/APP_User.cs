@@ -38,5 +38,6 @@ namespace GomypayDataAccess
         public string Builder { get; set; }
         public Nullable<System.DateTime> Modify_Date { get; set; }
         public string Modifier { get; set; }
+        public string Friends { get; set; }
     }
 }

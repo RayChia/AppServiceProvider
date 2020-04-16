@@ -189,7 +189,7 @@ namespace AppServiceProvider.Controllers
                             User_Account = body.phone,//帳號，默認為手機號碼
                             Sex = body.sex,
                             OtpCheck = "0",
-                            Email=body.email,
+                            Email = body.email,
 
                             Builder = "AppServer",
                             Build_Date = DateTime.Now,
@@ -576,25 +576,6 @@ namespace AppServiceProvider.Controllers
 
                 using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
                 {
-
-                    //驗手機 身分證字號 重複
-                    //if (entities.APP_Customer.FirstOrDefault(x => x.User_Account == body.phone) != null)
-                    //{// Message 手機號碼重複
-                    //    if (entities.APP_User.FirstOrDefault(x => x.OtpCheck == "1") != null)
-                    //    {//已簡訊開通帳號
-                    //        return Ok(new ApiResult<object>("500", "手機號碼重複"));
-                    //    }
-                    //    recover = true;
-                    //}
-                    //if (entities.APP_User.FirstOrDefault(x => x.Identifier == body.Id) != null)
-                    //{ // Message 身分證字號重複
-                    //    if (entities.APP_User.FirstOrDefault(x => x.OtpCheck == "1") != null)
-                    //    {//已簡訊開通帳號
-                    //        return Ok(new ApiResult<object>("500", "身分證字號重複"));
-                    //    }
-                    //    recover = true;
-                    //}
-
                     if (recover != true)//全新帳號
                     {
                         //取APP_System_ID
@@ -616,23 +597,7 @@ namespace AppServiceProvider.Controllers
                         entities.APP_Customer.Add(APPCustomerr);
                         DBSave = entities.SaveChanges();
                     }
-                    //else
-                    //{
-                    //    APP_User UpdateAppOrder = entities.APP_User.First(c => c.System_ID == body.Id);
-                    //    //UpdateAppOrder.System_ID = body.Id;
-                    //    UpdateAppOrder.Identifier = body.Id;
-                    //    UpdateAppOrder.User_Name = body.name;
-                    //    UpdateAppOrder.User_Password = body.Password;
-                    //    UpdateAppOrder.User_Account = body.phone;//帳號，默認為手機號碼
-                    //    UpdateAppOrder.Sex = body.sex;
-                    //    UpdateAppOrder.OtpCheck = "0";
 
-                    //    UpdateAppOrder.Modifier = "AppServer";
-                    //    UpdateAppOrder.Modify_Date = DateTime.Now;
-
-                    //    DBSave = entities.SaveChanges();
-
-                    //}
                     if (DBSave > 0)
                     {
                         //otp = _MemberService.GetCacheData(body.Id);
@@ -827,7 +792,7 @@ namespace AppServiceProvider.Controllers
                         }).ToList();
                     return Ok(new ApiResult<List<SlideShow>>(data));
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -838,6 +803,152 @@ namespace AppServiceProvider.Controllers
         }
 
 
+        /// <summary>
+        /// 新增好友
+        /// </summary>
+        /// <returns></returns>
+        [Route("CodecApi/addMyFriend")]
+        [HttpPost]
+        public IHttpActionResult addMyFriend([FromBody]AddMyFriend body)
+        {
+            string StrBody = string.Empty;
+            int DBSave = 0;
+            string otp = string.Empty;
+            List<string> Friends = new List<string>();
+            try
+            {
+                StrBody = JsonConvert.SerializeObject(body);
+                _logger.Debug("==新增好友== " + StrBody);
+                using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
+                {
+                    var data = entities.APP_User.FirstOrDefault(x => x.User_Account == body.id);
+                    if (data == null)
+                    {
+                        return Ok(new ApiResult<object>("500", "查無此使用者"));
+                    }
+                    if (!string.IsNullOrEmpty(data.Friends))
+                    {
+                        Friends = data.Friends.Split(',').ToList();
+                    }
+                    //int i = Friends.IndexOf(body.Friended);
+                    if ( Friends.IndexOf(body.Friended) > -1)
+                    {
+                        return Ok(new ApiResult<object>("500", "已新增好友"));
+                    }
+                    else
+                    {
+                        Friends.Add(body.Friended);
+                        var NewFriend = entities.APP_User.FirstOrDefault(x => x.User_Account == body.Friended);
+                        if (NewFriend == null)
+                        {
+                            return Ok(new ApiResult<object>("500", "查無此好友"));
+                        }
+                        else
+                        {
+
+                            APP_User UpdateAppUser = entities.APP_User.First(c => c.User_Account == body.id);
+                            UpdateAppUser.Friends = String.Join(",", Friends);
+                            UpdateAppUser.Modify_Date = DateTime.Now;
+                            DBSave = entities.SaveChanges();
+                            if (DBSave > 0)
+                            {
+                                return Ok(new ApiResult<object>());
+                            }
+                            else
+                            {
+                                return Ok(new ApiResult<object>("500", "資料庫錯誤"));
+                            }
+                        }
+                    }
+                    //return Ok(new ApiResult<List<SlideShow>>(data));
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error("===新增好友 Error===: " + ex.Message);
+                _logger.Error("===新增好友 Error===: " + ex.StackTrace);
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// 取得好友列表
+        /// </summary>
+        /// <returns></returns>
+        [Route("CodecApi/getMyFriend")]
+        [HttpPost]
+        public IHttpActionResult getMyFriend([FromBody]getMyFriend body)
+        {
+            string StrBody = string.Empty;
+            int DBSave = 0;
+            string otp = string.Empty;
+            List<string> Friends = new List<string>();
+            List<getMyFriendResult> FriendsList = new List<getMyFriendResult>();
+            string Json = "[";
+            try
+            {
+                StrBody = JsonConvert.SerializeObject(body);
+                _logger.Debug("==取得好友列表== " + StrBody);
+                using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
+                {
+                    var data = entities.APP_User.FirstOrDefault(x => x.User_Account == body.id);
+                    if (data == null)
+                    {
+                        return Ok(new ApiResult<object>("500", "查無此使用者"));
+                    }
+                    if (!string.IsNullOrEmpty(data.Friends))
+                    {
+                        Friends = data.Friends.Split(',').ToList();
+                        foreach (string F in Friends)
+                        {
+                            
+                            FriendsList.Add(new getMyFriendResult(F,entities.APP_User.FirstOrDefault(x => x.User_Account == F).System_ID));
+                        }
+                        _logger.Error("===取得好友列表 Json===: " + Json);
+                        return Ok(new ApiResult<object>(FriendsList));
+                    }
+                    
+                    ////int i = Friends.IndexOf(body.Friended);
+                    //if ( Friends.IndexOf(body.Friended) > -1)
+                    //{
+                    //    return Ok(new ApiResult<object>("500", "已新增好友"));
+                    //}
+                    //else
+                    //{
+                    //    Friends.Add(body.Friended);
+                    //    var NewFriend = entities.APP_User.FirstOrDefault(x => x.User_Account == body.Friended);
+                    //    if (NewFriend == null)
+                    //    {
+                    //        return Ok(new ApiResult<object>("500", "查無此好友"));
+                    //    }
+                    //    else
+                    //    {
+
+                    //        APP_User UpdateAppUser = entities.APP_User.First(c => c.User_Account == body.id);
+                    //        UpdateAppUser.Friends = String.Join(",", Friends);
+                    //        UpdateAppUser.Modify_Date = DateTime.Now;
+                    //        DBSave = entities.SaveChanges();
+                    //        if (DBSave > 0)
+                    //        {
+                    //            return Ok(new ApiResult<object>());
+                    //        }
+                    //        else
+                    //        {
+                    //            return Ok(new ApiResult<object>("500", "資料庫錯誤"));
+                    //        }
+                    //    }
+                    //}
+                    //return Ok(new ApiResult<List<SlideShow>>(data));
+                }
+                return Ok(new ApiResult<object>());
+            }
+            catch (Exception ex)
+            {
+                _logger.Error("===取得好友列表 Error===: " + ex.Message);
+                _logger.Error("===取得好友列表 Error===: " + ex.StackTrace);
+                throw ex;
+            }
+        }
         #endregion
     }
 }

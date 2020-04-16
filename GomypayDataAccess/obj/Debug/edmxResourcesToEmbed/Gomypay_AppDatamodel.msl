@@ -288,6 +288,7 @@
     <EntitySetMapping Name="APP_User">
       <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_User">
         <MappingFragment StoreEntitySet="APP_User">
+          <ScalarProperty Name="Friends" ColumnName="Friends" />
           <ScalarProperty Name="Modifier" ColumnName="Modifier" />
           <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
           <ScalarProperty Name="Builder" ColumnName="Builder" />

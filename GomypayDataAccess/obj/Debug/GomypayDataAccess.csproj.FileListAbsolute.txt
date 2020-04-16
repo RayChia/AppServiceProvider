@@ -10,3 +10,4 @@ D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\obj\Debug\GomypayDataAccess.
 D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\obj\Debug\GomypayDataAccess.dll
 D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\obj\Debug\GomypayDataAccess.pdb
 D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\obj\Debug\GomypayDataAccess.csprojAssemblyReference.cache
+D:\Dropbox\GMP\AppServiceProvider\GomypayDataAccess\bin\Debug\zh-Hant\EntityFramework.SqlServer.resources.dll

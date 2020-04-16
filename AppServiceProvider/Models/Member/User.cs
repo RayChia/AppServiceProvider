@@ -58,4 +58,25 @@
         public string email { get; set; } = "";
         public string password { get; set; } = "";
     }
+    public class AddMyFriend
+    {
+        public string id { get; set; } = "";
+        public string Friended { get; set; } = "";
+    }
+    public class getMyFriend
+    {
+        public string id { get; set; } = "";
+    }
+    public class getMyFriendResult
+    {
+        public string id { get; set; } = "";
+        public string account { get; set; } = "";
+        public getMyFriendResult(string Id, string Account)
+        {
+            this.id = Id;
+            this.account = Account;
+        }
+    }
+
+
 }

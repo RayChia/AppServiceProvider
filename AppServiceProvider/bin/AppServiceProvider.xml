@@ -576,6 +576,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.addMyFriend(AppServiceProvider.Models.AddMyFriend)">
+            <summary>
+            新增好友
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.getMyFriend(AppServiceProvider.Models.getMyFriend)">
+            <summary>
+            取得好友列表
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:AppServiceProvider.Models.NewOrder.Userid">
             <summary>
             使用者ID
