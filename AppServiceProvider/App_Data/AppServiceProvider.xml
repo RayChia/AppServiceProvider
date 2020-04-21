@@ -544,6 +544,12 @@
             <param name="body"></param>
             <returns></returns>
         </member>
+        <member name="M:AppServiceProvider.Controllers.CodecApiController.UpdateUser(AppServiceProvider.Models.AddUser)">
+            <summary>
+            修改個人資料
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:AppServiceProvider.Controllers.CodecApiController.AddStore(AppServiceProvider.Models.AddStore)">
             <summary>
             新增店家

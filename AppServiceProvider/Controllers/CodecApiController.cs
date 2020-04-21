@@ -245,7 +245,6 @@ namespace AppServiceProvider.Controllers
             }
         }
 
-
         /// <summary>
         /// 使用者簡訊驗證
         /// </summary>
@@ -372,7 +371,7 @@ namespace AppServiceProvider.Controllers
                     var data = entities.APP_User
                         .Where(x => x.User_Account == body.account &&
                         x.User_Password == body.password)
-                       .Select(x => new AddUser
+                       .Select(x => new AddUser // 借用格式
                        {
                            account = string.IsNullOrEmpty(x.System_ID) ? "" : x.System_ID,
                            name = string.IsNullOrEmpty(x.User_Name) ? "" : x.User_Name,
@@ -547,6 +546,64 @@ namespace AppServiceProvider.Controllers
             {
                 _logger.Debug("==更新密碼== : " + ex.ToString());
                 _logger.Debug("==更新密碼== : " + ex.StackTrace.ToString());
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// 修改個人資料
+        /// </summary>
+        /// <returns></returns>
+        [Route("CodecApi/UpdateUser")]
+        [HttpPost]
+        public IHttpActionResult UpdateUser([FromBody]AddUser body)//借格式
+        {
+            //1.電話簡訊寄驗證碼
+            //2.更換EMAIL
+
+            //1. 驗帳號
+            //2. 開通?
+            //3. 改資料
+            string StrBody = string.Empty;
+            int DBSave = 0;
+            string otp = string.Empty;
+            List<string> Friends = new List<string>();
+            List<getMyFriendResult> FriendsList = new List<getMyFriendResult>();
+            //string Json = "[";
+            try
+            {
+                StrBody = JsonConvert.SerializeObject(body);
+                _logger.Debug("==取得好友列表== " + StrBody);
+                using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
+                {
+                    var data = entities.APP_User.FirstOrDefault(x => x.User_Account == body.phone && x.OtpCheck!="1");
+                    if (data == null)
+                    {
+                        return Ok(new ApiResult<object>("500", "查無此帳號或未通過簡訊開通"));
+                    }
+                    //data.Birthday = body.birthday;
+                    data.Email = body.email;
+                    data.System_ID = body.account;
+                    data.User_Name = body.name;
+                    data.Sex = body.sex;
+                    DBSave = entities.SaveChanges();
+
+                    if (DBSave > 0)
+                    {
+                        return Ok(new ApiResult<object>());
+                    }
+                    else
+                    {
+                        return Ok(new ApiResult<object>("500", "資料庫錯誤"));
+                    }
+
+                }
+                return Ok(new ApiResult<object>());
+            }
+            catch (Exception ex)
+            {
+                _logger.Error("===修改Email Error===: " + ex.Message);
+                _logger.Error("===修改Email Error===: " + ex.StackTrace);
                 throw ex;
             }
         }
@@ -908,37 +965,6 @@ namespace AppServiceProvider.Controllers
                         return Ok(new ApiResult<object>(FriendsList));
                     }
                     
-                    ////int i = Friends.IndexOf(body.Friended);
-                    //if ( Friends.IndexOf(body.Friended) > -1)
-                    //{
-                    //    return Ok(new ApiResult<object>("500", "已新增好友"));
-                    //}
-                    //else
-                    //{
-                    //    Friends.Add(body.Friended);
-                    //    var NewFriend = entities.APP_User.FirstOrDefault(x => x.User_Account == body.Friended);
-                    //    if (NewFriend == null)
-                    //    {
-                    //        return Ok(new ApiResult<object>("500", "查無此好友"));
-                    //    }
-                    //    else
-                    //    {
-
-                    //        APP_User UpdateAppUser = entities.APP_User.First(c => c.User_Account == body.id);
-                    //        UpdateAppUser.Friends = String.Join(",", Friends);
-                    //        UpdateAppUser.Modify_Date = DateTime.Now;
-                    //        DBSave = entities.SaveChanges();
-                    //        if (DBSave > 0)
-                    //        {
-                    //            return Ok(new ApiResult<object>());
-                    //        }
-                    //        else
-                    //        {
-                    //            return Ok(new ApiResult<object>("500", "資料庫錯誤"));
-                    //        }
-                    //    }
-                    //}
-                    //return Ok(new ApiResult<List<SlideShow>>(data));
                 }
                 return Ok(new ApiResult<object>());
             }
