@@ -693,7 +693,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GomypayDataAccess\GomypayDataAccess.csproj">
-      <Project>{691b0925-149f-4c52-899b-f60293c66ecc}</Project>
+      <Project>{6deadb65-40cf-4a8a-b357-8546bc952ca9}</Project>
       <Name>GomypayDataAccess</Name>
     </ProjectReference>
   </ItemGroup>

@@ -71,10 +71,9 @@ namespace AppServiceProvider.Controllers
 
                 }
 
-                //查詢店家資訊
+                //查詢店家資訊 交易密碼
                 using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
                 {
-
                     var pass = entities.APP_Customer.FirstOrDefault(x => x.Customer_ID == body.CustomerId);
                     if (pass != null)
                     {
@@ -84,6 +83,21 @@ namespace AppServiceProvider.Controllers
                     {
                         return Ok(new ApiResult<object>("500", "查無商家資訊"));
                     }
+                    if (string.IsNullOrEmpty(body.Bonus) || body.Bonus == "0") 
+                    { 
+                        //不使用紅利
+                        //計算回饋 取回饋 前台OR後台計算 
+                        
+                        
+                    }
+                    else
+                    {
+                        //使用紅利
+                        //檢查紅利
+                        //計算紅利公式???
+                        //前端送來 實際刷卡金額???
+                    }
+
                 }
 
                 //logger.Debug("APP Request Body : " + body);
@@ -112,6 +126,8 @@ namespace AppServiceProvider.Controllers
             }
             catch (Exception ex)
             {
+                _logger.Debug("creditcard : " + ex.Message);
+                _logger.Debug("creditcard : " + ex.StackTrace);
                 throw ex;
             }
         }
@@ -598,7 +614,7 @@ namespace AppServiceProvider.Controllers
                     }
 
                 }
-                return Ok(new ApiResult<object>());
+                //return Ok(new ApiResult<object>());
             }
             catch (Exception ex)
             {

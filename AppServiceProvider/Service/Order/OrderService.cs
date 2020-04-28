@@ -32,23 +32,6 @@ namespace AppServiceProvider.Service
                 string APOrder_ID = string.Empty;//交易唯一識別碼 APP訂單編號(AP+年月日+6碼流水號)
                 int DBSave = 0;
 
-                //取商家交易密碼
-                //using (Gomypay_AppEntities entities = new Gomypay_AppEntities())
-                //{
-
-                //    var pass = entities.APP_Customer.FirstOrDefault(x => x.Customer_ID == BodyObj.CustomerId);
-                //    if (pass != null)
-                //    {
-                //        BodyObj.Str_Check = pass.Customer_Password;
-                //    }
-                //    else
-                //    {
-                //        return JsonToQueryString(new ApiResult<object>("500","查無商家資訊"));
-                //    }
-                //}
-
-
-
                 //取交易流水編號
                 using (SqlConnection connection = new SqlConnection(connString))
                 {
@@ -101,7 +84,7 @@ namespace AppServiceProvider.Service
                 if (DBSave>0)
                 {
                     //送API 物件轉QueryString
-                    RespBody = SendOrder(JsonToQueryString(BodyObj));
+                    RespBody = SendOrderToGMP(JsonToQueryString(BodyObj));
                     //RespBody = JsonToQueryString(BodyObj);
                 }
                 else
@@ -138,7 +121,8 @@ namespace AppServiceProvider.Service
                     }
                 }
                 else //授權失敗
-                { 
+                {
+                    logger.Debug("CreditCardOrder : " + "GOMYPAY 付費授權失敗 !!!");
                 }
 
                 return RespBody;
@@ -161,7 +145,7 @@ namespace AppServiceProvider.Service
                             .Select(jp => jp.Name + "=" + HttpUtility.UrlEncode(jp.Value.ToString())));
             return query;
         }
-        public string SendOrder(string QueryString)
+        public string SendOrderToGMP(string QueryString)
         {
             try
             {

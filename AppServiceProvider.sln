@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppServiceProvider", "AppServiceProvider\AppServiceProvider.csproj", "{E412AF36-487F-4828-9F7C-D7CE7839CBC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GomypayDataAccess", "GomypayDataAccess\GomypayDataAccess.csproj", "{691B0925-149F-4C52-899B-F60293C66ECC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GomypayDataAccess", "GomypayDataAccess\GomypayDataAccess.csproj", "{6DEADB65-40CF-4A8A-B357-8546BC952CA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{E412AF36-487F-4828-9F7C-D7CE7839CBC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E412AF36-487F-4828-9F7C-D7CE7839CBC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E412AF36-487F-4828-9F7C-D7CE7839CBC8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{691B0925-149F-4C52-899B-F60293C66ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{691B0925-149F-4C52-899B-F60293C66ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{691B0925-149F-4C52-899B-F60293C66ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{691B0925-149F-4C52-899B-F60293C66ECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DEADB65-40CF-4A8A-B357-8546BC952CA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DEADB65-40CF-4A8A-B357-8546BC952CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DEADB65-40CF-4A8A-B357-8546BC952CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DEADB65-40CF-4A8A-B357-8546BC952CA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

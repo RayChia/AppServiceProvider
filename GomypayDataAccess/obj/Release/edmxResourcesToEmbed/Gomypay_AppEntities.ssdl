@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Gomypay_AppDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="Gomypay_AppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="APP_Activity">
     <Key>
       <PropertyRef Name="ID" />
@@ -314,7 +314,7 @@
     <Property Name="Modify_Date" Type="datetime" />
     <Property Name="Modifier" Type="nvarchar" MaxLength="32" />
   </EntityType>
-  <EntityContainer Name="Gomypay_AppDBModelStoreContainer">
+  <EntityContainer Name="Gomypay_AppModelStoreContainer">
     <EntitySet Name="APP_Activity" EntityType="Self.APP_Activity" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="APP_Category_Big" EntityType="Self.APP_Category_Big" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="APP_Category_Small" EntityType="Self.APP_Category_Small" Schema="dbo" store:Type="Tables" />

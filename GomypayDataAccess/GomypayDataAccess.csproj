@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{691B0925-149F-4C52-899B-F60293C66ECC}</ProjectGuid>
+    <ProjectGuid>{6DEADB65-40CF-4A8A-B357-8546BC952CA9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GomypayDataAccess</RootNamespace>
@@ -51,105 +51,105 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APP_Activity.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_Category_Big.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_Category_Small.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_Customer.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_Grade.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_Mission.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_Mission_Item.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_Misson_Mode.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_News.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_Notice.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_Order.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_Product.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_Product_Big.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_Product_Small.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_Promotion.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_SlideShow.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_SurpriseBox.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_SurPrise_Item.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_TCash.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="APP_User.cs">
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Gomypay_AppDatamodel.Context.cs">
+    <Compile Include="Gomypay_AppEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Gomypay_AppDatamodel.Context.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Gomypay_AppDatamodel.cs">
+    <Compile Include="Gomypay_AppEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Gomypay_AppDatamodel.tt</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Gomypay_AppDatamodel.Designer.cs">
+    <Compile Include="Gomypay_AppEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Gomypay_AppDatamodel.edmx</DependentUpon>
+      <DependentUpon>Gomypay_AppEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Gomypay_AppDatamodel.edmx">
+    <EntityDeploy Include="Gomypay_AppEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Gomypay_AppDatamodel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Gomypay_AppEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="Gomypay_AppDatamodel.edmx.diagram">
-      <DependentUpon>Gomypay_AppDatamodel.edmx</DependentUpon>
+    <None Include="Gomypay_AppEntities.edmx.diagram">
+      <DependentUpon>Gomypay_AppEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Gomypay_AppDatamodel.Context.tt">
+    <Content Include="Gomypay_AppEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Gomypay_AppDatamodel.Context.cs</LastGenOutput>
-      <DependentUpon>Gomypay_AppDatamodel.edmx</DependentUpon>
+      <LastGenOutput>Gomypay_AppEntities.Context.cs</LastGenOutput>
+      <DependentUpon>Gomypay_AppEntities.edmx</DependentUpon>
     </Content>
-    <Content Include="Gomypay_AppDatamodel.tt">
+    <Content Include="Gomypay_AppEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Gomypay_AppDatamodel.edmx</DependentUpon>
-      <LastGenOutput>Gomypay_AppDatamodel.cs</LastGenOutput>
+      <DependentUpon>Gomypay_AppEntities.edmx</DependentUpon>
+      <LastGenOutput>Gomypay_AppEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

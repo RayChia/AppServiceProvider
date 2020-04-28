@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Gomypay_AppDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="Gomypay_AppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="APP_Activity">
     <Key>
       <PropertyRef Name="ID" />
@@ -283,6 +283,37 @@
     <Property Name="Checker" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Build_Date" Type="DateTime" Precision="3" />
   </EntityType>
+  <EntityType Name="APP_User">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="System_ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="System_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="User_Account" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="User_Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Identifier" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="RN_verified" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="IsDuplicate" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="OtpCheck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Friends" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Address_City" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Address_Zone" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Address_ZIP" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Bonus_Point" Type="Int64" />
+    <Property Name="Invoice_Carrier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Referrer_Type" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="Referrer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Build_Date" Type="DateTime" Precision="3" />
+    <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Modify_Date" Type="DateTime" Precision="3" />
+    <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityContainer Name="Gomypay_AppEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="APP_Activity" EntityType="Self.APP_Activity" />
     <EntitySet Name="APP_Category_Big" EntityType="Self.APP_Category_Big" />
@@ -303,37 +334,6 @@
     <EntitySet Name="APP_SurPrise_Item" EntityType="Self.APP_SurPrise_Item" />
     <EntitySet Name="APP_SurpriseBox" EntityType="Self.APP_SurpriseBox" />
     <EntitySet Name="APP_TCash" EntityType="Self.APP_TCash" />
-    <EntitySet Name="APP_User" EntityType="Gomypay_AppDBModel.APP_User" />
+    <EntitySet Name="APP_User" EntityType="Self.APP_User" />
   </EntityContainer>
-  <EntityType Name="APP_User">
-    <Key>
-      <PropertyRef Name="ID" />
-      <PropertyRef Name="System_ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="System_ID" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-    <Property Name="User_Account" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="User_Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-    <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Identifier" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Birthday" Type="DateTime" Precision="0" />
-    <Property Name="RN_verified" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-    <Property Name="IsDuplicate" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-    <Property Name="OtpCheck" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-    <Property Name="Address_City" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-    <Property Name="Address_Zone" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-    <Property Name="Address_ZIP" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Bonus_Point" Type="Int64" />
-    <Property Name="Invoice_Carrier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="Referrer_Type" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
-    <Property Name="Referrer_ID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-    <Property Name="Build_Date" Type="DateTime" Precision="3" />
-    <Property Name="Builder" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-    <Property Name="Modify_Date" Type="DateTime" Precision="3" />
-    <Property Name="Modifier" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-    <Property Name="Friends" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
 </Schema>

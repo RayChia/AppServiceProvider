@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Gomypay_AppDBModelStoreContainer" CdmEntityContainer="Gomypay_AppEntities">
+  <EntityContainerMapping StorageEntityContainer="Gomypay_AppModelStoreContainer" CdmEntityContainer="Gomypay_AppEntities">
     <EntitySetMapping Name="APP_Activity">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Activity">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Activity">
         <MappingFragment StoreEntitySet="APP_Activity">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Activity_ID" ColumnName="Activity_ID" />
@@ -20,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_Category_Big">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Category_Big">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Category_Big">
         <MappingFragment StoreEntitySet="APP_Category_Big">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="BCategory_ID" ColumnName="BCategory_ID" />
@@ -29,7 +29,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_Category_Small">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Category_Small">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Category_Small">
         <MappingFragment StoreEntitySet="APP_Category_Small">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="SCategory_ID" ColumnName="SCategory_ID" />
@@ -38,7 +38,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_Customer">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Customer">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Customer">
         <MappingFragment StoreEntitySet="APP_Customer">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="APP_Customer_ID" ColumnName="APP_Customer_ID" />
@@ -83,7 +83,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_Grade">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Grade">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Grade">
         <MappingFragment StoreEntitySet="APP_Grade">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Grade_No" ColumnName="Grade_No" />
@@ -92,7 +92,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_Mission">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Mission">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Mission">
         <MappingFragment StoreEntitySet="APP_Mission">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Misson_No" ColumnName="Misson_No" />
@@ -107,7 +107,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_Mission_Item">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Mission_Item">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Mission_Item">
         <MappingFragment StoreEntitySet="APP_Mission_Item">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Misson_Item_No" ColumnName="Misson_Item_No" />
@@ -119,7 +119,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_Misson_Mode">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Misson_Mode">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Misson_Mode">
         <MappingFragment StoreEntitySet="APP_Misson_Mode">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Misson_Mode_No" ColumnName="Misson_Mode_No" />
@@ -129,7 +129,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_News">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_News">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_News">
         <MappingFragment StoreEntitySet="APP_News">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="News_No" ColumnName="News_No" />
@@ -144,7 +144,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_Notice">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Notice">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Notice">
         <MappingFragment StoreEntitySet="APP_Notice">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Notice_No" ColumnName="Notice_No" />
@@ -158,7 +158,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_Order">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Order">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Order">
         <MappingFragment StoreEntitySet="APP_Order">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="APOrder_ID" ColumnName="APOrder_ID" />
@@ -182,7 +182,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_Product">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Product">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Product">
         <MappingFragment StoreEntitySet="APP_Product">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
@@ -194,7 +194,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_Product_Big">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Product_Big">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Product_Big">
         <MappingFragment StoreEntitySet="APP_Product_Big">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="BProduct_ID" ColumnName="BProduct_ID" />
@@ -203,7 +203,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_Product_Small">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Product_Small">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Product_Small">
         <MappingFragment StoreEntitySet="APP_Product_Small">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="SProduct_ID" ColumnName="SProduct_ID" />
@@ -212,7 +212,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_Promotion">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_Promotion">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_Promotion">
         <MappingFragment StoreEntitySet="APP_Promotion">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Promotion_ID" ColumnName="Promotion_ID" />
@@ -225,7 +225,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_SlideShow">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_SlideShow">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_SlideShow">
         <MappingFragment StoreEntitySet="APP_SlideShow">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Pic" ColumnName="Pic" />
@@ -236,7 +236,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_SurPrise_Item">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_SurPrise_Item">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_SurPrise_Item">
         <MappingFragment StoreEntitySet="APP_SurPrise_Item">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="SurItem_No" ColumnName="SurItem_No" />
@@ -249,7 +249,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_SurpriseBox">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_SurpriseBox">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_SurpriseBox">
         <MappingFragment StoreEntitySet="APP_SurpriseBox">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="SurBox_No" ColumnName="SurBox_No" />
@@ -267,7 +267,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_TCash">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_TCash">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_TCash">
         <MappingFragment StoreEntitySet="APP_TCash">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Cash_No" ColumnName="Cash_No" />
@@ -286,32 +286,33 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APP_User">
-      <EntityTypeMapping TypeName="Gomypay_AppDBModel.APP_User">
+      <EntityTypeMapping TypeName="Gomypay_AppModel.APP_User">
         <MappingFragment StoreEntitySet="APP_User">
-          <ScalarProperty Name="Modifier" ColumnName="Modifier" />
-          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
-          <ScalarProperty Name="Builder" ColumnName="Builder" />
-          <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
-          <ScalarProperty Name="Referrer_ID" ColumnName="Referrer_ID" />
-          <ScalarProperty Name="Referrer_Type" ColumnName="Referrer_Type" />
-          <ScalarProperty Name="Invoice_Carrier" ColumnName="Invoice_Carrier" />
-          <ScalarProperty Name="Bonus_Point" ColumnName="Bonus_Point" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Address_ZIP" ColumnName="Address_ZIP" />
-          <ScalarProperty Name="Address_Zone" ColumnName="Address_Zone" />
-          <ScalarProperty Name="Address_City" ColumnName="Address_City" />
-          <ScalarProperty Name="OtpCheck" ColumnName="OtpCheck" />
-          <ScalarProperty Name="Sex" ColumnName="Sex" />
-          <ScalarProperty Name="IsDuplicate" ColumnName="IsDuplicate" />
-          <ScalarProperty Name="RN_verified" ColumnName="RN_verified" />
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
-          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
-          <ScalarProperty Name="User_Password" ColumnName="User_Password" />
-          <ScalarProperty Name="User_Account" ColumnName="User_Account" />
-          <ScalarProperty Name="System_ID" ColumnName="System_ID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="System_ID" ColumnName="System_ID" />
+          <ScalarProperty Name="User_Account" ColumnName="User_Account" />
+          <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="RN_verified" ColumnName="RN_verified" />
+          <ScalarProperty Name="IsDuplicate" ColumnName="IsDuplicate" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="OtpCheck" ColumnName="OtpCheck" />
+          <ScalarProperty Name="Friends" ColumnName="Friends" />
+          <ScalarProperty Name="Address_City" ColumnName="Address_City" />
+          <ScalarProperty Name="Address_Zone" ColumnName="Address_Zone" />
+          <ScalarProperty Name="Address_ZIP" ColumnName="Address_ZIP" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Bonus_Point" ColumnName="Bonus_Point" />
+          <ScalarProperty Name="Invoice_Carrier" ColumnName="Invoice_Carrier" />
+          <ScalarProperty Name="Referrer_Type" ColumnName="Referrer_Type" />
+          <ScalarProperty Name="Referrer_ID" ColumnName="Referrer_ID" />
+          <ScalarProperty Name="Build_Date" ColumnName="Build_Date" />
+          <ScalarProperty Name="Builder" ColumnName="Builder" />
+          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+          <ScalarProperty Name="Modifier" ColumnName="Modifier" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -711,6 +711,11 @@
             交易驗證密碼，如果檢查不符合無法交易(使用Json回傳才為必填欄位)
             </summary>
         </member>
+        <member name="P:AppServiceProvider.Models.CreditCard.Bonus">
+            <summary>
+            紅利扣點
+            </summary>
+        </member>
         <member name="T:AppServiceProvider.Models.AddStore">
             <summary>
             新增店家

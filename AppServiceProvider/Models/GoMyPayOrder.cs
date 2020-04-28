@@ -54,7 +54,6 @@ namespace AppServiceProvider.Models
         /// 授權結果回傳網址：如無則自動轉入系統預設授權頁面
         /// 註:如果要用JSON回傳請勿帶此參數
         /// </summary>
-
         public string Return_url { get; set; } = "";
         /// <summary>
         /// 背景對帳網址，如未填寫默認不進行背景對帳
@@ -95,6 +94,10 @@ namespace AppServiceProvider.Models
         /// 交易驗證密碼，如果檢查不符合無法交易(使用Json回傳才為必填欄位)
         /// </summary>
         public string Str_Check { get; set; } = "";
+        /// <summary>
+        /// 紅利扣點
+        /// </summary>
+        public string Bonus { get; set; } = "";
     }
     public class CreditCardResult
     {
