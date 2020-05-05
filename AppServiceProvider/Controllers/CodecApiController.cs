@@ -83,6 +83,7 @@ namespace AppServiceProvider.Controllers
                     {
                         return Ok(new ApiResult<object>("500", "查無商家資訊"));
                     }
+                    //Bonus
                     if (string.IsNullOrEmpty(body.Bonus) || body.Bonus == "0") 
                     { 
                         //不使用紅利
