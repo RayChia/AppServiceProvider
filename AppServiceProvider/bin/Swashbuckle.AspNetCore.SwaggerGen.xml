@@ -70,6 +70,13 @@
             Describe all parameters, regardless of how they appear in code, in camelCase
             </summary>
         </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.AddServer(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions,Microsoft.OpenApi.Models.OpenApiServer)">
+            <summary>
+            Provide specific server information to include in the generated Swagger document
+            </summary>
+            <param name="swaggerGenOptions"></param>
+            <param name="server">A description of the server</param>
+        </member>
         <member name="M:Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.AddSecurityDefinition(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions,System.String,Microsoft.OpenApi.Models.OpenApiSecurityScheme)">
             <summary>
             Add one or more "securityDefinitions", describing how your API is protected, to the generated Swagger
@@ -128,6 +135,12 @@
             <param name="subTypesResolver"></param>
             <param name="discriminatorSelector"></param>
         </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.UseAllOfToExtendReferenceSchemas(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <summary>
+            Extend reference schemas (using the allOf construct) so that contextual metadata can be applied to all parameter and property schemas
+            </summary>
+            <param name="swaggerGenOptions"></param>
+        </member>
         <member name="M:Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.UseInlineDefinitionsForEnums(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
             <summary>
             Generate inline schema definitions (as opposed to referencing a shared definition) for enum parameters and properties
@@ -147,6 +160,14 @@
             Extend the Swagger Generator with "filters" that can modify Parameters after they're initially generated
             </summary>
             <typeparam name="TFilter">A type that derives from IParameterFilter</typeparam>
+            <param name="swaggerGenOptions"></param>
+            <param name="arguments">Optionally inject parameters through filter constructors</param>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.RequestBodyFilter``1(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions,System.Object[])">
+            <summary>
+            Extend the Swagger Generator with "filters" that can modify RequestBodys after they're initially generated
+            </summary>
+            <typeparam name="TFilter">A type that derives from IRequestBodyFilter</typeparam>
             <param name="swaggerGenOptions"></param>
             <param name="arguments">Optionally inject parameters through filter constructors</param>
         </member>
